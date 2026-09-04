@@ -1,0 +1,18 @@
+/* Uliveto — padrões de elemento. Mínimo necessário; nenhuma decoração. */
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--surface-page);color:var(--text-ink);font-family:var(--font-serif);font-size:var(--type-body-md-size);line-height:var(--type-body-md-leading);font-weight:400;text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4,h5,h6{margin:0;font-family:var(--font-serif);font-weight:400}
+p{margin:0;max-width:var(--layout-measure);text-wrap:pretty}
+ul,ol{margin:0;padding:0;list-style:none}
+img,video{display:block;max-width:100%;height:auto;border-radius:0}
+figure{margin:0}
+hr{border:0;border-top:var(--border-structural);margin:0}
+em,i{font-style:italic}
+strong,b{font-weight:400;font-variant-caps:small-caps;font-feature-settings:var(--font-feature-smallcaps);letter-spacing:var(--type-smallcaps-tracking)}
+a{color:var(--text-link);text-decoration:underline;text-decoration-thickness:var(--text-underline-thickness);text-underline-offset:var(--text-underline-offset);text-decoration-color:var(--text-link);transition:none}
+a:hover{color:var(--text-link-hover);text-decoration-color:var(--text-link)}
+a:visited{color:var(--text-link)}
+button,input,textarea,select{font:inherit;color:inherit;border-radius:0}
+:focus-visible{outline:var(--focus-ring);outline-offset:var(--focus-ring-offset)}
+::selection{background:var(--color-neutral);color:var(--text-ink)}

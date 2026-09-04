@@ -1,0 +1,15 @@
+/* Uliveto — grade e medida. A margem é o material principal do sistema. */
+:root{
+  --layout-max-width:1440px;
+  --layout-columns:12;
+  --layout-gutter:32px;
+  --layout-margin:96px;         /* desktop — deliberadamente maior do que o confortável */
+  --layout-margin-md:48px;      /* < 1024px, grade de 6 colunas */
+  --layout-margin-sm:24px;      /* < 640px, coluna única */
+  --layout-measure:36rem;       /* ≈66 caracteres na Garamond a 19px. Parágrafo full-width é proibido. */
+  /* conteúdo nas colunas 1–7; 8–12 ficam vazias */
+  --layout-content-span:7;
+  --layout-image-ratio-landscape:3 / 2;
+  --layout-image-ratio-portrait:4 / 5;
+  --layout-image-ratio-square:1 / 1;
+}

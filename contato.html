@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contato — José Marques</title>
+<meta name="description" content="Fale comigo sobre um projeto de back-end, dados ou integração.">
+<meta name="color-scheme" content="light">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="assets/css/uliveto/styles.css">
+<link rel="stylesheet" href="assets/css/site.css">
+<script src="assets/js/site.js" defer></script>
+</head>
+<body>
+<a class="uv-skip" href="#conteudo">Ir para o conteúdo</a>
+<div class="u-page">
+    <header class="uv-header">
+      <div class="uv-header__bar">
+        <a class="uv-brand" href="index.html">NoFear</a>
+        <nav class="uv-nav" aria-label="Principal">
+        <a href="index.html">Quem sou eu</a>
+        <a href="projetos.html">Projetos</a>
+        <a href="no-fear.html">No Fear</a>
+        <a href="colecao.html">Coleção de Criações</a>
+        <a href="contato.html" aria-current="page">Contato</a>
+        </nav>
+        <button class="uv-menu-toggle" type="button" data-menu-open aria-expanded="false" aria-controls="menu-mobile">Menu</button>
+      </div>
+      <div class="uv-menu" id="menu-mobile" data-menu hidden>
+        <button class="uv-menu-toggle uv-menu__close" type="button" data-menu-close>Fechar</button>
+        <nav aria-label="Principal">
+        <a href="index.html">Quem sou eu</a>
+        <a href="projetos.html">Projetos</a>
+        <a href="no-fear.html">No Fear</a>
+        <a href="colecao.html">Coleção de Criações</a>
+        <a href="contato.html" aria-current="page">Contato</a>
+        </nav>
+        <div class="uv-menu__foot">
+          <hr class="uv-rule--light" style="margin-bottom:var(--space-md)">
+          <div class="type-body-sm">jose@nofear.dev</div>
+        </div>
+      </div>
+    </header>
+  </div>
+<main class="u-page" id="conteudo" data-reveal>
+  <div class="u-grid-12" style="padding-top:var(--space-xxl);padding-bottom:var(--space-xxxl)">
+    <div class="uv-col" style="--col:1 / span 6" data-reveal>
+      <h1 class="type-headline-lg" style="margin-bottom:var(--space-lg)">Contato</h1>
+      <p class="type-body-md" style="margin-bottom:var(--space-xl);max-width:30rem">Escreva o que precisa em duas ou três frases. Se for projeto, diga o prazo que você tem em mente.</p>
+
+      <form class="uv-stack--lg" method="post" action="#" data-form-contato>
+        <div class="uv-field">
+          <label for="nome">Nome</label>
+          <input id="nome" name="nome" type="text" autocomplete="name" required>
+          <div class="uv-field__error" data-erro="nome" hidden>Escreva seu nome para eu saber com quem falo.</div>
+        </div>
+        <div class="uv-field">
+          <label for="email">E-mail</label>
+          <input id="email" name="email" type="email" autocomplete="email" required>
+          <div class="uv-field__error" data-erro="email" hidden>Escreva um e-mail com @ para eu poder responder.</div>
+        </div>
+        <div class="uv-field">
+          <label for="mensagem">O que você precisa</label>
+          <textarea id="mensagem" name="mensagem" rows="5" required></textarea>
+          <div class="uv-field__error" data-erro="mensagem" hidden>Escreva duas ou três frases sobre o que você precisa.</div>
+        </div>
+        <div style="padding-top:var(--space-md)">
+          <button class="uv-btn uv-btn--primary" type="submit">Enviar</button>
+        </div>
+      </form>
+    </div>
+
+    <div class="uv-col" style="--col:8 / span 5;padding-top:16px" data-reveal>
+      <hr class="uv-rule--light">
+      <div style="padding-top:var(--space-md)">
+        <h2 class="type-label-caps">Ou direto</h2>
+        <div class="uv-stack" style="margin-top:var(--space-md)">
+          <a href="mailto:jose@nofear.dev">jose@nofear.dev</a>
+          <a href="https://github.com/josemarques" rel="noreferrer noopener">github.com/josemarques</a>
+        </div>
+        <p class="type-body-sm" style="margin-top:var(--space-xl);max-width:24rem">Respondo em até dois dias úteis. Se for urgente, escreva direto para o e-mail.</p>
+      </div>
+    </div>
+  </div>
+</main>
+<footer class="uv-footer" data-reveal-self>
+    <div class="u-page">
+      <div class="uv-footer__cols">
+        <div class="uv-footer__brand">
+          <div class="uv-footer__mark">NoFear</div>
+          <div class="uv-footer__note">Portfólio de back-end e dados. Site estático, sem rastreamento.</div>
+        </div>
+        <div class="uv-footer__col">
+          <h2>Índice</h2>
+          <a href="projetos.html">Projetos</a>
+          <a href="colecao.html">Coleção de Criações</a>
+        </div>
+        <div class="uv-footer__col">
+          <h2>Contato</h2>
+          <a href="mailto:jose@nofear.dev">jose@nofear.dev</a>
+          <a href="https://github.com/josemarques" rel="noreferrer noopener">github.com/josemarques</a>
+        </div>
+        <div class="uv-footer__col">
+          <h2>No Fear</h2>
+          <a href="no-fear.html">A empresa</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

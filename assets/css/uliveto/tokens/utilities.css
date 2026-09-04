@@ -1,0 +1,28 @@
+/* Uliveto — utilitários. Uma classe por degrau da escala tipográfica, mais os
+   quatro auxiliares de layout que o sistema realmente usa. Nada além disso. */
+.type-display{font-family:var(--type-display-family);font-size:var(--type-display-size);font-weight:400;line-height:var(--type-display-leading);letter-spacing:var(--type-display-tracking)}
+.type-headline-lg{font-family:var(--type-headline-lg-family);font-size:var(--type-headline-lg-size);font-weight:400;line-height:var(--type-headline-lg-leading);letter-spacing:var(--type-headline-lg-tracking)}
+.type-headline-md{font-family:var(--type-headline-md-family);font-size:var(--type-headline-md-size);font-weight:400;line-height:var(--type-headline-md-leading);letter-spacing:var(--type-headline-md-tracking)}
+.type-index-title{font-family:var(--type-index-title-family);font-size:var(--type-index-title-size);font-weight:400;line-height:var(--type-index-title-leading);letter-spacing:var(--type-index-title-tracking)}
+.type-body-lg{font-family:var(--type-body-lg-family);font-size:var(--type-body-lg-size);font-weight:400;line-height:var(--type-body-lg-leading)}
+.type-body-md{font-family:var(--type-body-md-family);font-size:var(--type-body-md-size);font-weight:400;line-height:var(--type-body-md-leading)}
+.type-body-sm{font-family:var(--type-body-sm-family);font-size:var(--type-body-sm-size);font-weight:400;line-height:var(--type-body-sm-leading)}
+.type-smallcaps{font-family:var(--type-smallcaps-family);font-size:var(--type-smallcaps-size);font-weight:400;line-height:var(--type-smallcaps-leading);letter-spacing:var(--type-smallcaps-tracking);font-variant-caps:small-caps;font-variant-numeric:oldstyle-nums;font-feature-settings:var(--type-smallcaps-features)}
+.type-caption{font-family:var(--type-caption-family);font-size:var(--type-caption-size);font-weight:400;line-height:var(--type-caption-leading);font-style:italic}
+.type-label-caps{font-family:var(--type-label-caps-family);font-size:var(--type-label-caps-size);font-weight:500;line-height:var(--type-label-caps-leading);letter-spacing:var(--type-label-caps-tracking);text-transform:uppercase}
+.type-label-caps-sm{font-family:var(--type-label-caps-sm-family);font-size:var(--type-label-caps-sm-size);font-weight:500;line-height:var(--type-label-caps-sm-leading);letter-spacing:var(--type-label-caps-sm-tracking);text-transform:uppercase}
+.type-meta-num{font-family:var(--type-meta-num-family);font-size:var(--type-meta-num-size);font-weight:400;line-height:var(--type-meta-num-leading);letter-spacing:var(--type-meta-num-tracking);font-variant-numeric:tabular-nums;font-feature-settings:var(--type-meta-num-features)}
+.u-page{max-width:var(--layout-max-width);margin:0 auto;padding-left:var(--layout-margin);padding-right:var(--layout-margin)}
+/* Índice de projetos — a grade central do site: nº | nome | disciplina | ano */
+.u-index-row{display:grid;grid-template-columns:repeat(12,1fr);gap:var(--layout-gutter);align-items:baseline;padding:var(--space-lg) var(--space-md)}
+.u-index-row>.idx-num{grid-column:1 / span 1}
+.u-index-row>.idx-name{grid-column:2 / span 6}
+.u-index-row>.idx-disc{grid-column:8 / span 3}
+.u-index-row>.idx-year{grid-column:12 / span 1;text-align:right}
+@media (max-width:1023px){.u-index-row{grid-template-columns:repeat(6,1fr)}.u-index-row>.idx-name{grid-column:2 / span 3}.u-index-row>.idx-disc{grid-column:5 / span 1}.u-index-row>.idx-year{grid-column:6 / span 1}}
+@media (max-width:639px){.u-index-row{grid-template-columns:auto 1fr auto;row-gap:var(--space-sm);column-gap:var(--space-md);padding-left:0;padding-right:0}.u-index-row>.idx-num{grid-row:1;grid-column:1}.u-index-row>.idx-name{grid-row:1;grid-column:2 / span 2}.u-index-row>.idx-disc{grid-row:2;grid-column:1 / span 2}.u-index-row>.idx-year{grid-row:2;grid-column:3}}
+.u-measure{max-width:var(--layout-measure)}
+.u-grid-12{display:grid;grid-template-columns:repeat(12,1fr);gap:var(--layout-gutter)}
+.u-content-span{grid-column:1 / span 7}
+@media (max-width:1023px){.u-page{padding-left:var(--layout-margin-md);padding-right:var(--layout-margin-md)}.u-grid-12{grid-template-columns:repeat(6,1fr)}.u-content-span{grid-column:1 / span 6}}
+@media (max-width:639px){.u-page{padding-left:var(--layout-margin-sm);padding-right:var(--layout-margin-sm)}.u-grid-12{grid-template-columns:1fr}.u-content-span{grid-column:1}.type-display{font-size:var(--type-display-size-mobile)}}

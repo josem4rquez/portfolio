@@ -1,0 +1,18 @@
+/* Uliveto — espaçamento. Base 8px. O ritmo vertical varia por intenção, nunca é uniforme. */
+:root{
+  --space-base:8px;
+  --space-xs:4px;
+  --space-sm:8px;
+  --space-md:16px;
+  --space-lg:32px;
+  --space-xl:64px;
+  --space-xxl:120px;
+  --space-xxxl:200px;
+
+  /* semânticos de ritmo */
+  --space-section-unrelated:var(--space-xxxl); /* 200px — entre seções sem relação */
+  --space-section-inner:var(--space-xxl);      /* 120px — blocos dentro de uma seção */
+  --space-index-row:var(--space-lg);           /* 32px — linhas do índice */
+  --space-figure-mat:var(--space-xl);          /* 64px — folga do passe-partout */
+  --space-footer:var(--space-xxl);             /* 120px — respiro do rodapé */
+}

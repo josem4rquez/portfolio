@@ -1,0 +1,9 @@
+/* Uliveto — movimento. Existe UMA transição no sistema inteiro: a opacidade de imagens
+   já carregadas na primeira exibição. Hover, foco e troca de estado são instantâneos. */
+:root{
+  --motion-image-duration:400ms;
+  --motion-image-easing:ease-out;
+  --motion-image-reveal:opacity 400ms ease-out;
+  /* valor explícito para hover/press/entrada de seção */
+  --motion-none:none;
+}

@@ -1,0 +1,12 @@
+# Editores
+.vscode/
+.idea/
+
+# Node (o site não usa; tools/ pode usar em algum momento)
+node_modules/
+
+# Lixo do sistema operacional
+Thumbs.db
+ehthumbs.db
+desktop.ini
+.DS_Store

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Conciliação de pagamentos — José Marques</title>
+<meta name="description" content="Fecha o dia de quatro adquirentes e aponta a diferença antes de o financeiro procurar.">
+<meta name="color-scheme" content="light">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="../assets/css/uliveto/styles.css">
+<link rel="stylesheet" href="../assets/css/site.css">
+<script src="../assets/js/site.js" defer></script>
+</head>
+<body>
+<a class="uv-skip" href="#conteudo">Ir para o conteúdo</a>
+<div class="u-page">
+    <header class="uv-header">
+      <div class="uv-header__bar">
+        <a class="uv-brand" href="../index.html">NoFear</a>
+        <nav class="uv-nav" aria-label="Principal">
+        <a href="../index.html">Quem sou eu</a>
+        <a href="../projetos.html" aria-current="page">Projetos</a>
+        <a href="../no-fear.html">No Fear</a>
+        <a href="../colecao.html">Coleção de Criações</a>
+        <a href="../contato.html">Contato</a>
+        </nav>
+        <button class="uv-menu-toggle" type="button" data-menu-open aria-expanded="false" aria-controls="menu-mobile">Menu</button>
+      </div>
+      <div class="uv-menu" id="menu-mobile" data-menu hidden>
+        <button class="uv-menu-toggle uv-menu__close" type="button" data-menu-close>Fechar</button>
+        <nav aria-label="Principal">
+        <a href="../index.html">Quem sou eu</a>
+        <a href="../projetos.html" aria-current="page">Projetos</a>
+        <a href="../no-fear.html">No Fear</a>
+        <a href="../colecao.html">Coleção de Criações</a>
+        <a href="../contato.html">Contato</a>
+        </nav>
+        <div class="uv-menu__foot">
+          <hr class="uv-rule--light" style="margin-bottom:var(--space-md)">
+          <div class="type-body-sm">jose@nofear.dev</div>
+        </div>
+      </div>
+    </header>
+  </div>
+<main class="u-page" id="conteudo" data-reveal>
+  <div style="padding-top:var(--space-lg)">
+    <a class="uv-back type-label-caps" href="../projetos.html">Voltar ao índice</a>
+  </div>
+
+  <div class="u-grid-12" style="padding-top:var(--space-xl)">
+    <div class="u-content-span">
+      <div class="type-meta-num" style="margin-bottom:var(--space-md)">01</div>
+      <h1 class="type-headline-lg">Conciliação de pagamentos</h1>
+    </div>
+    <div class="uv-stack uv-col" style="--col:9 / span 4;padding-top:38px">
+      <div class="type-label-caps-sm">Back-end · 2026</div>
+      <div class="type-label-caps-sm">Sozinho, do banco ao deploy</div>
+      <div class="type-label-caps-sm">Cliente No Fear</div>
+    </div>
+  </div>
+
+  <div style="padding-top:var(--space-xl)">
+    <figure class="uv-fig">
+        <div class="uv-mat"><div class="uv-slot" style="--ratio:3 / 2" data-slot="Foto ou diagrama 3:2 — coloque uma imagem aqui"></div></div>
+        <figcaption>Sem foto à altura, esta posição vira placa tipográfica.</figcaption>
+      </figure>
+  </div>
+
+  <div class="u-grid-12" style="padding-top:var(--space-xxl)">
+    <div class="u-content-span">
+      <h2 class="type-label-caps">O problema</h2>
+      <div style="margin:var(--space-md) 0 var(--space-xl)">
+          <p class="type-body-md u-measure">O fechamento do dia era feito em quatro planilhas, uma por adquirente, comparadas à mão por duas pessoas. Quando a diferença aparecia, já era o dia seguinte e ninguém sabia de qual arquivo ela tinha vindo.</p>
+      </div>
+      <h2 class="type-label-caps">O que construí</h2>
+      <div style="margin-top:var(--space-md)">
+          <p class="type-body-md u-measure" style="margin-bottom:var(--space-lg)">Um serviço que lê os arquivos dos quatro adquirentes, casa cada transação com o pedido e escreve a divergência em uma tabela só. O que não casa vai para uma tela de exceção, com o motivo escrito em português.</p>
+          <p class="type-body-md u-measure">A parte difícil não foi o casamento: foi o arquivo que chega fora de ordem, repetido, ou com o mesmo identificador para duas cobranças. A regra de desempate está documentada e foi escrita junto com o financeiro.</p>
+      </div>
+    </div>
+    <div class="uv-col" style="--col:9 / span 4">
+      <hr class="uv-rule--light">
+      <div style="padding-top:var(--space-md)">
+        <h2 class="type-label-caps">Stack</h2>
+        <div class="uv-chips" style="margin-top:var(--space-md)">
+          <span class="uv-chip">Go</span>
+          <span class="uv-chip">Postgres</span>
+          <span class="uv-chip">Docker</span>
+          <span class="uv-chip">Grafana</span>
+        </div>
+      </div>
+      <div style="padding-top:var(--space-xl)">
+        <h2 class="type-label-caps">Resultado</h2>
+        <div class="type-headline-md" style="margin-top:var(--space-md)">De quatro planilhas para uma tela</div>
+      </div>
+      <div style="padding-top:var(--space-xl)">
+        <h2 class="type-label-caps">Código</h2>
+        <div style="margin-top:var(--space-md)">
+          <a href="https://github.com/josemarques/conciliacao" target="_blank" rel="noreferrer noopener">github.com/josemarques/conciliacao</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="uv-pair uv-sec">
+    <div><figure class="uv-fig">
+        <div class="uv-mat--sm"><div class="uv-slot" style="--ratio:1 / 1" data-slot="Print da tela de exceção"></div></div>
+        <figcaption>Tela de exceção: motivo em português, não código de erro.</figcaption>
+      </figure></div>
+    <div><figure class="uv-fig">
+        <div class="uv-mat--sm"><div class="uv-slot" style="--ratio:1 / 1" data-slot="Print do fechamento do dia"></div></div>
+        <figcaption>Fechamento do dia, com a diferença já apontada.</figcaption>
+      </figure></div>
+  </div>
+
+  <nav class="uv-sec" style="padding-bottom:var(--space-xxxl)" aria-label="Outros projetos">
+    <hr>
+    <div class="uv-pager">
+      <a class="type-label-caps" href="../projetos/consolidacao-de-bases-de-rh.html">Anterior · Consolidação de bases de RH</a>
+      <a class="type-label-caps" href="../projetos/api-de-autenticacao.html">Próximo · API de autenticação</a>
+    </div>
+  </nav>
+</main>
+<footer class="uv-footer" data-reveal-self>
+    <div class="u-page">
+      <div class="uv-footer__cols">
+        <div class="uv-footer__brand">
+          <div class="uv-footer__mark">NoFear</div>
+          <div class="uv-footer__note">Portfólio de back-end e dados. Site estático, sem rastreamento.</div>
+        </div>
+        <div class="uv-footer__col">
+          <h2>Índice</h2>
+          <a href="../projetos.html">Projetos</a>
+          <a href="../colecao.html">Coleção de Criações</a>
+        </div>
+        <div class="uv-footer__col">
+          <h2>Contato</h2>
+          <a href="mailto:jose@nofear.dev">jose@nofear.dev</a>
+          <a href="https://github.com/josemarques" rel="noreferrer noopener">github.com/josemarques</a>
+        </div>
+        <div class="uv-footer__col">
+          <h2>No Fear</h2>
+          <a href="../no-fear.html">A empresa</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

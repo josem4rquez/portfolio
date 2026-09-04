@@ -1,0 +1,44 @@
+/* Uliveto — paleta. Sete valores, sistema inteiro. Nenhuma cor de sucesso/aviso/info. */
+:root{
+  /* Base — cada valor tem referente físico (ver assets/docs/design.md → Colors) */
+  --color-primary:#373D20;         /* Verde Oliva Escuro — a tinta */
+  --color-secondary:#717744;       /* Oliva Seca — filete estrutural. PROIBIDA como texto (4,18:1) */
+  --color-tertiary:#766153;        /* Nogueira — única cor quente; significa "clicável" */
+  --color-neutral:#BCBD8B;         /* Salva Seca — filete leve + campo de hover do índice */
+  --color-surface:#EFF1ED;         /* Calce — parede caiada, fundo de toda página */
+  --color-surface-sunken:#E3E6DD;  /* Calce Sombreada — passe-partout e rodapé */
+  --color-error:#8A3D26;           /* Cotto — só validação de formulário */
+
+  /* Semânticos — texto */
+  --text-ink:var(--color-primary);
+  --text-body:var(--color-primary);
+  --text-muted:var(--color-primary);      /* não há cinza: "apagado" se faz com tamanho, não cor */
+  --text-on-dark:var(--color-surface);
+  --text-link:var(--color-tertiary);
+  --text-link-hover:var(--color-primary);
+  --text-error:var(--color-error);
+
+  /* Semânticos — superfície */
+  --surface-page:var(--color-surface);
+  --surface-sunken:var(--color-surface-sunken);
+  --surface-mat:var(--color-surface-sunken);      /* passe-partout de figura */
+  --surface-plate:var(--color-surface-sunken);    /* placa tipográfica */
+  --surface-index-hover:var(--color-neutral);
+  --surface-footer:var(--color-surface-sunken);
+  --surface-inverse:var(--color-primary);
+
+  /* Semânticos — filetes e bordas */
+  --rule-structural:var(--color-secondary);
+  --rule-light:var(--color-neutral);
+  --border-interactive:var(--color-tertiary);     /* exclusivo do botão secundário */
+
+  /* Semânticos — ação */
+  --button-primary-bg:var(--color-tertiary);
+  --button-primary-bg-hover:var(--color-primary);
+  --button-primary-text:var(--color-surface);
+  --button-secondary-text:var(--color-tertiary);
+  --button-secondary-border:var(--color-tertiary);
+
+  /* Foco de teclado — única exceção à regra "sem efeitos" */
+  --focus-ring-color:var(--color-tertiary);
+}

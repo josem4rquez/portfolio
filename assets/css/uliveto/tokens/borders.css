@@ -1,0 +1,13 @@
+/* Uliveto — filetes, raio e elevação.
+   Raio zero em absolutamente tudo: não existe token de raio porque não existe decisão de raio.
+   Não existe box-shadow neste sistema, com a única exceção do contorno de foco. */
+:root{
+  --border-width:1px;
+  --border-structural:1px solid var(--rule-structural); /* Oliva Seca — divide conteúdo */
+  --border-light:1px solid var(--rule-light);           /* Salva Seca — limite leve */
+  --border-interactive-line:1px solid var(--border-interactive); /* só o botão secundário */
+
+  --focus-ring-width:2px;
+  --focus-ring-offset:2px;
+  --focus-ring:2px solid var(--focus-ring-color);
+}

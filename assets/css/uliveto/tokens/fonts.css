@@ -1,0 +1,21 @@
+/* Uliveto — famílias tipográficas.
+   assets/docs/design.md exige as duas famílias servidas LOCALMENTE (site estático, sem CDN de terceiros).
+   Os binários OFL ainda não estão em assets/fonts/: até lá este arquivo carrega
+   EB Garamond + Archivo do Google Fonts. Ao receber os arquivos, apague o @import
+   abaixo e descomente o bloco @font-face. */
+@import url("https://fonts.googleapis.com/css2?family=Archivo:wght@400;500&family=EB+Garamond:ital,wght@0,400;1,400&display=swap");
+
+/* ---- Servir localmente (alvo final) --------------------------------------
+@font-face{font-family:"EB Garamond";src:url("../../../fonts/EBGaramond-Regular.woff2") format("woff2");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"EB Garamond";src:url("../../../fonts/EBGaramond-Italic.woff2") format("woff2");font-weight:400;font-style:italic;font-display:swap}
+@font-face{font-family:"Archivo";src:url("../../../fonts/Archivo-Regular.woff2") format("woff2");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Archivo";src:url("../../../fonts/Archivo-Medium.woff2") format("woff2");font-weight:500;font-style:normal;font-display:swap}
+-------------------------------------------------------------------------- */
+
+:root{
+  --font-serif-display:"EB Garamond","Iowan Old Style",Georgia,serif;
+  --font-serif:"EB Garamond","Iowan Old Style",Georgia,serif;
+  --font-sans:Archivo,"Helvetica Neue",Arial,sans-serif;
+  --font-feature-smallcaps:"smcp" 1,"onum" 1;
+  --font-feature-tnum:"tnum" 1;
+}

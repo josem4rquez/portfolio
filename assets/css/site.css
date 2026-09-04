@@ -1,0 +1,327 @@
+/* ===========================================================================
+   Uliveto aplicado — camada de site.
+   Cada bloco abaixo é a tradução literal de um componente React do design
+   system (_ds_bundle.js) para CSS estático. Os valores não foram
+   reinterpretados: saíram dos mesmos tokens que o componente lia.
+   Nenhuma regra aqui inventa cor, raio ou sombra.
+   =========================================================================== */
+
+/* --- SiteHeader ---------------------------------------------------------- */
+.uv-header{position:relative}
+.uv-header__bar{
+  display:flex;align-items:baseline;justify-content:space-between;
+  gap:var(--layout-gutter);
+  padding-top:var(--space-lg);padding-bottom:var(--space-lg);
+  border-bottom:var(--border-light);
+}
+.uv-brand{
+  font-family:var(--font-serif);font-size:var(--type-index-title-size);
+  line-height:1;letter-spacing:0.01em;
+  color:var(--text-ink);text-decoration:none;
+}
+.uv-nav{display:flex;gap:var(--space-lg);align-items:baseline}
+.uv-nav a,
+.uv-menu-toggle{
+  font-family:var(--font-sans);font-size:var(--type-label-caps-size);
+  font-weight:500;letter-spacing:var(--type-label-caps-tracking);
+  text-transform:uppercase;text-decoration:none;
+  background:none;border:0;padding:0;cursor:pointer;transition:none;
+  color:var(--text-link);
+}
+/* Item atual em tinta: deixou de ser um destino, então deixou de ser Nogueira. */
+.uv-nav a[aria-current="page"]{color:var(--text-ink)}
+.uv-nav a:hover,.uv-menu-toggle:hover{color:var(--text-link-hover)}
+.uv-menu-toggle{display:none}
+
+/* Menu de tela cheia: Calce sólida, sem transparência e sem desfoque. */
+.uv-menu{
+  position:fixed;inset:0;background:var(--surface-page);z-index:10;
+  padding:var(--layout-margin-sm);
+  display:flex;flex-direction:column;gap:var(--space-lg);
+}
+.uv-menu[hidden]{display:none}
+.uv-menu__close{align-self:flex-end}
+.uv-menu nav{display:flex;flex-direction:column;gap:var(--space-md);margin-top:var(--space-xl)}
+.uv-menu nav a{
+  font-family:var(--font-serif);font-size:var(--type-headline-md-size);
+  line-height:var(--type-headline-md-leading);letter-spacing:var(--type-headline-md-tracking);
+  text-decoration:none;color:var(--text-link);
+}
+.uv-menu nav a[aria-current="page"]{color:var(--text-ink)}
+.uv-menu__foot{margin-top:auto;padding-bottom:var(--space-xl)}
+
+@media (max-width:639px){
+  .uv-nav{display:none}
+  .uv-menu-toggle{display:inline-block}
+}
+
+/* --- Button -------------------------------------------------------------- */
+/* Exatamente dois botões. Sem ícone. No máximo um primário por tela. */
+.uv-btn{
+  display:inline-block;
+  font-family:var(--font-sans);font-size:var(--type-label-caps-size);
+  font-weight:500;line-height:var(--type-label-caps-leading);
+  letter-spacing:var(--type-label-caps-tracking);
+  text-transform:uppercase;text-decoration:none;
+  padding:var(--space-md);border-radius:0;cursor:pointer;transition:none;
+}
+.uv-btn--primary{
+  background:var(--button-primary-bg);color:var(--button-primary-text);
+  border:1px solid transparent;
+}
+.uv-btn--primary:hover{background:var(--button-primary-bg-hover);color:var(--button-primary-text)}
+.uv-btn--secondary{
+  background:transparent;color:var(--button-secondary-text);
+  border:var(--border-interactive-line);
+}
+.uv-btn--secondary:hover{color:var(--text-ink)}
+.uv-btn[aria-disabled="true"],.uv-btn:disabled{opacity:.4;cursor:default}
+
+/* --- DisciplineChip ------------------------------------------------------ */
+/* Não é clicável e não deve parecer clicável — nada de Nogueira aqui. */
+.uv-chip{
+  display:inline-block;background:var(--surface-sunken);color:var(--text-ink);
+  font-family:var(--font-sans);font-size:var(--type-label-caps-sm-size);
+  font-weight:500;line-height:var(--type-label-caps-sm-leading);
+  letter-spacing:var(--type-label-caps-sm-tracking);
+  text-transform:uppercase;padding:var(--space-sm);border-radius:0;
+}
+
+/* --- Rule ---------------------------------------------------------------- */
+/* <hr> puro já é structural (base.css). Só o peso leve precisa de classe. */
+.uv-rule--light{border-top:var(--border-light)}
+
+/* --- ProjectIndex / IndexRow --------------------------------------------- */
+.uv-index{
+  margin-left:calc(-1 * var(--space-md));
+  margin-right:calc(-1 * var(--space-md));
+  border-top:var(--border-structural);
+}
+.uv-index--no-top-rule{border-top:none}
+/* A linha inteira é o link, não só o nome. */
+.uv-index-row{
+  text-decoration:none;color:var(--text-ink);
+  background:transparent;border-bottom:var(--border-structural);transition:none;
+}
+/* Hover preenche a linha com Salva Seca — troca instantânea, sem transição. */
+.uv-index-row:hover,.uv-index-row:focus-visible{background:var(--surface-index-hover);color:var(--text-ink)}
+.uv-index-row .idx-num,.uv-index-row .idx-year{
+  font-family:var(--font-sans);font-size:var(--type-meta-num-size);
+  letter-spacing:var(--type-meta-num-tracking);font-variant-numeric:tabular-nums;
+}
+.uv-index-row .idx-name{
+  font-family:var(--font-serif);font-size:var(--type-index-title-size);
+  line-height:var(--type-index-title-leading);letter-spacing:var(--type-index-title-tracking);
+}
+.uv-index-row .idx-disc{
+  font-family:var(--font-sans);font-size:var(--type-label-caps-sm-size);
+  font-weight:500;letter-spacing:var(--type-label-caps-sm-tracking);text-transform:uppercase;
+}
+/* Variante com linha de resumo sob o nome (tela 3b). */
+.uv-index-row .idx-title{display:block}
+.uv-index-row .idx-sub{
+  display:block;margin-top:6px;max-width:32rem;
+  font-family:var(--font-serif);font-size:var(--type-body-sm-size);
+  line-height:var(--type-body-sm-leading);letter-spacing:normal;
+}
+/* Disciplina que é um cliente No Fear ganha Nogueira: aponta para outra página. */
+.idx-disc--nofear{color:var(--text-link)}
+
+/* --- Field --------------------------------------------------------------- */
+/* Filete inferior apenas: sem caixa, sem preenchimento, sem raio. */
+.uv-field{display:flex;flex-direction:column;gap:var(--space-sm);max-width:28rem}
+.uv-field > label{
+  font-family:var(--font-sans);font-size:var(--type-label-caps-size);
+  font-weight:500;letter-spacing:var(--type-label-caps-tracking);
+  text-transform:uppercase;color:var(--text-ink);
+}
+.uv-field input,.uv-field textarea{
+  width:100%;background:transparent;border:0;border-bottom:var(--border-light);
+  border-radius:0;padding:var(--space-sm) 0;
+  font-family:var(--font-serif);font-size:var(--type-body-sm-size);
+  line-height:var(--type-body-sm-leading);color:var(--text-ink);
+  box-shadow:none;transition:none;
+}
+.uv-field textarea{resize:vertical}
+.uv-field input[aria-invalid="true"],.uv-field textarea[aria-invalid="true"]{
+  border-bottom:1px solid var(--text-error);color:var(--text-error);
+}
+/* Erro em Cotto, dizendo o que fazer — não o que falhou. */
+.uv-field__error{
+  font-family:var(--font-serif);font-size:var(--type-body-sm-size);
+  line-height:var(--type-body-sm-leading);color:var(--text-error);
+}
+
+/* --- Plate --------------------------------------------------------------- */
+/* A resposta do sistema quando não há foto à altura. */
+.uv-plate{margin:0}
+.uv-plate__field{
+  background:var(--surface-plate);aspect-ratio:var(--ratio,3 / 2);
+  padding:var(--space-xl);
+  display:flex;flex-direction:column;justify-content:space-between;align-items:flex-start;
+}
+.uv-plate__title{
+  font-family:var(--font-serif);font-size:var(--type-headline-lg-size);
+  line-height:var(--type-headline-lg-leading);letter-spacing:var(--type-headline-lg-tracking);
+  color:var(--text-ink);max-width:24ch;
+}
+.uv-plate__meta{
+  font-family:var(--font-sans);font-size:var(--type-label-caps-sm-size);
+  font-weight:500;letter-spacing:var(--type-label-caps-sm-tracking);
+  text-transform:uppercase;color:var(--text-ink);
+}
+.uv-plate figcaption,.uv-fig figcaption{
+  margin-top:var(--space-md);
+  font-family:var(--font-serif);font-size:var(--type-caption-size);
+  line-height:var(--type-caption-leading);font-style:italic;
+  max-width:var(--layout-measure);
+}
+@media (max-width:639px){
+  .uv-plate__field{padding:var(--space-lg)}
+  .uv-plate__title{font-size:var(--type-headline-md-size);line-height:var(--type-headline-md-leading)}
+}
+
+/* --- Figura e passe-partout ---------------------------------------------- */
+.uv-fig{margin:0}
+.uv-mat{background:var(--surface-mat);padding:var(--space-xl)}
+.uv-mat--sm{background:var(--surface-mat);padding:var(--space-lg)}
+@media (max-width:639px){.uv-mat,.uv-mat--sm{padding:var(--space-md)}}
+.uv-img{width:100%;aspect-ratio:var(--ratio,3 / 2);object-fit:cover;display:block}
+/* Vaga de imagem: fica em Calce sobre o passe-partout até a foto chegar.
+   Troque a <div> por <img class="uv-img" style="--ratio:…"> e a vaga some. */
+.uv-slot{
+  width:100%;aspect-ratio:var(--ratio,3 / 2);
+  background:var(--surface-page);border:var(--border-light);
+  display:flex;align-items:center;justify-content:center;padding:var(--space-md);
+}
+.uv-slot::after{
+  content:attr(data-slot);
+  font-family:var(--font-serif);font-size:var(--type-caption-size);
+  line-height:var(--type-caption-leading);font-style:italic;
+  color:var(--text-ink);text-align:center;
+}
+
+/* --- Footer -------------------------------------------------------------- */
+/* Links de contato são texto — sem ícones de rede social. */
+.uv-footer{
+  background:var(--surface-footer);color:var(--text-ink);
+  padding-top:var(--space-footer);padding-bottom:var(--space-footer);
+}
+.uv-footer__cols{
+  display:flex;flex-wrap:wrap;gap:var(--space-xl);
+  justify-content:space-between;align-items:flex-start;
+}
+.uv-footer__brand{display:flex;flex-direction:column;gap:var(--space-md)}
+.uv-footer__mark{
+  font-family:var(--font-serif);font-size:var(--type-index-title-size);
+  line-height:1;letter-spacing:0.01em;
+}
+.uv-footer__note{
+  font-family:var(--font-serif);font-size:var(--type-body-sm-size);
+  line-height:var(--type-body-sm-leading);max-width:26rem;
+}
+.uv-footer__col{display:flex;flex-direction:column;gap:var(--space-sm)}
+.uv-footer__col > h2{
+  font-family:var(--font-sans);font-size:var(--type-label-caps-sm-size);
+  font-weight:500;letter-spacing:var(--type-label-caps-sm-tracking);
+  text-transform:uppercase;padding-bottom:var(--space-xs);
+}
+.uv-footer__col a,.uv-footer__col span{
+  font-family:var(--font-serif);font-size:var(--type-body-sm-size);
+  line-height:var(--type-body-sm-leading);
+}
+@media (max-width:639px){
+  .uv-footer{padding-top:var(--space-xl);padding-bottom:var(--space-xl)}
+  .uv-footer__cols{gap:var(--space-lg)}
+}
+
+/* --- Colocação na grade de 12 --------------------------------------------- */
+/* A tela de alta fidelidade fixava a página em 1440px e podia escrever
+   `grid-column:9 / span 4` direto no elemento. Num site real esse valor
+   precisa desaparecer quando a grade encolhe para 6 colunas e depois para 1 —
+   senão o navegador cria colunas implícitas e espreme o texto. Daí a classe:
+   o número do desenho fica visível em --col e some sozinho nos dois cortes. */
+.uv-col{grid-column:var(--col,auto)}
+@media (max-width:1023px){.uv-col{grid-column:var(--col-md,1 / -1)}}
+@media (max-width:639px){.uv-col{grid-column:1 / -1}}
+
+/* Linha de serviço da No Fear: nº | nome | descrição, com a mesma lógica de
+   reagrupamento do índice de projetos. */
+.uv-svc{
+  display:grid;grid-template-columns:repeat(12,1fr);gap:var(--layout-gutter);
+  padding:var(--space-lg) var(--space-md);border-bottom:var(--border-structural);
+}
+.uv-svc__num{grid-column:1}
+.uv-svc__name{grid-column:2 / span 4}
+.uv-svc__text{grid-column:7 / span 6;max-width:32rem}
+@media (max-width:1023px){
+  .uv-svc{grid-template-columns:repeat(6,1fr);row-gap:var(--space-sm)}
+  .uv-svc__name{grid-column:2 / span 5}
+  .uv-svc__text{grid-column:2 / span 5}
+}
+@media (max-width:639px){
+  .uv-svc{grid-template-columns:auto 1fr;column-gap:var(--space-md);row-gap:var(--space-sm);padding-left:0;padding-right:0}
+  .uv-svc__num{grid-row:1;grid-column:1}
+  .uv-svc__name{grid-row:1;grid-column:2}
+  .uv-svc__text{grid-row:2;grid-column:1 / -1}
+}
+
+/* --- Ritmo de página ------------------------------------------------------ */
+/* 200px entre seções sem relação, 120px entre blocos de uma mesma seção. */
+.uv-sec{padding-top:var(--space-xxl)}
+.uv-sec--far{padding-top:var(--space-xxxl)}
+.uv-tail{height:var(--space-xxxl)}
+/* Cabeça de seção: rótulo à esquerda, contagem à direita, na mesma linha de base. */
+.uv-sec-head{
+  display:flex;align-items:baseline;justify-content:space-between;
+  gap:var(--space-md);margin-bottom:var(--space-md);
+}
+.uv-stack{display:flex;flex-direction:column;gap:var(--space-md)}
+.uv-stack--lg{display:flex;flex-direction:column;gap:var(--space-lg)}
+.uv-chips{display:flex;flex-wrap:wrap;gap:var(--space-sm)}
+/* Grade de mídia da Coleção: duas colunas, a segunda descida de 64px. */
+.uv-media-grid{display:grid;grid-template-columns:1fr 1fr;gap:var(--space-xxl) var(--layout-gutter)}
+.uv-media-grid__offset{padding-top:var(--space-xl)}
+.uv-pair{display:grid;grid-template-columns:1fr 1fr;gap:var(--layout-gutter)}
+.uv-media-head{display:flex;justify-content:space-between;align-items:baseline;gap:var(--space-md);margin-top:var(--space-md)}
+@media (max-width:1023px){
+  .uv-media-grid{gap:var(--space-xl) var(--layout-gutter)}
+  .uv-media-grid__offset{padding-top:0}
+}
+@media (max-width:639px){
+  .uv-media-grid,.uv-pair{grid-template-columns:1fr;gap:var(--space-xl)}
+  .uv-sec{padding-top:var(--space-xl)}
+  .uv-sec--far{padding-top:var(--space-xl)}
+  .uv-tail{height:var(--space-xl)}
+}
+
+/* Paginação de ficha: anterior à esquerda, próximo à direita. */
+.uv-pager{display:flex;justify-content:space-between;gap:var(--space-lg);padding-top:var(--space-lg)}
+.uv-pager a,.uv-back{color:var(--text-link);text-decoration:none}
+.uv-pager a:hover,.uv-back:hover{color:var(--text-link-hover)}
+@media (max-width:639px){.uv-pager{flex-direction:column;gap:var(--space-md)}}
+
+/* --- A única transição do sistema ---------------------------------------- */
+/* Opacidade de 400ms ease-out na primeira exibição de cada bloco.
+   Hover, foco e troca de estado continuam instantâneos. */
+@media (prefers-reduced-motion:no-preference){
+  /* O estado inicial nao transiciona: esconder e instantaneo, senao o bloco
+     apareceria e sumiria animado antes de revelar. A transicao vive no
+     estado final, que e o unico movimento do sistema. */
+  .rv{
+    opacity:0;transform:translateY(10px);
+    will-change:opacity,transform;
+  }
+  .rv-in{
+    opacity:1;transform:none;
+    transition:opacity var(--motion-image-duration) var(--motion-image-easing),
+               transform var(--motion-image-duration) var(--motion-image-easing);
+  }
+}
+
+/* Atalho de teclado para o conteúdo. */
+.uv-skip{position:absolute;left:-9999px}
+.uv-skip:focus{
+  position:fixed;left:var(--layout-margin-sm);top:var(--space-sm);z-index:20;
+  background:var(--surface-page);padding:var(--space-sm);
+}
