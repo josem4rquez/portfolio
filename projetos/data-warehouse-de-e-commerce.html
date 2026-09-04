@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Pipeline de vendas — José Marques</title>
-<meta name="description" content="ETL diário de seis fontes para um modelo que o time comercial consulta sozinho.">
+<title>Data warehouse de e-commerce — José Marques</title>
+<meta name="description" content="Venda transacional vira esquema estrela: staging, oito dimensões e um fato consultável.">
 <meta name="color-scheme" content="light">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -38,7 +38,7 @@
         </nav>
         <div class="uv-menu__foot">
           <hr class="uv-rule--light" style="margin-bottom:var(--space-md)">
-          <div class="type-body-sm">jose@nofear.dev</div>
+          <div class="type-body-sm">josebermarques@gmail.com</div>
         </div>
       </div>
     </header>
@@ -50,23 +50,20 @@
 
   <div class="u-grid-12" style="padding-top:var(--space-xl)">
     <div class="u-content-span">
-      <div class="type-meta-num" style="margin-bottom:var(--space-md)">05</div>
-      <h1 class="type-headline-lg">Pipeline de vendas</h1>
+      <div class="type-meta-num" style="margin-bottom:var(--space-md)">04</div>
+      <h1 class="type-headline-lg">Data warehouse de e-commerce</h1>
     </div>
     <div class="uv-stack uv-col" style="--col:9 / span 4;padding-top:38px">
       <div class="type-label-caps-sm">Dados · 2026</div>
-      <div class="type-label-caps-sm">Sozinho, do banco ao deploy</div>
-      <div class="type-label-caps-sm">Cliente No Fear</div>
+      <div class="type-label-caps-sm">Sozinho, da modelagem ao carregamento</div>
+      <div class="type-label-caps-sm">Pessoal</div>
     </div>
   </div>
 
   <div style="padding-top:var(--space-xl)">
-    <figure class="uv-plate">
-        <div class="uv-plate__field" style="--ratio:3 / 2">
-          <div class="uv-plate__title">Pipeline de vendas</div>
-          <div class="uv-plate__meta">Dados · 2026</div>
-        </div>
-        <figcaption>Placa tipográfica: a resposta do sistema quando não há foto à altura.</figcaption>
+    <figure class="uv-fig">
+        <div class="uv-mat"><img class="uv-img" style="--ratio:3 / 2" src="../assets/img/ecommerce-dw-estrela.png" width="1436" height="957" alt="Diagrama do esquema estrela: fato_vendas ao centro, ligado às dimensões cliente, produto, vendedor, categoria, data, pagamento, fornecedor e estoque, com as tabelas de staging à direita."></div>
+        <figcaption>Um fato de vendas ao centro, oito dimensões em volta.</figcaption>
       </figure>
   </div>
 
@@ -74,11 +71,13 @@
     <div class="u-content-span">
       <h2 class="type-label-caps">O problema</h2>
       <div style="margin:var(--space-md) 0 var(--space-xl)">
-          <p class="type-body-md u-measure">Este projeto ainda não tem o relato escrito. A ficha está diagramada e espera o texto: o que estava quebrado antes, o que foi construído e onde a coisa ficou difícil.</p>
+          <p class="type-body-md u-measure">Dado de venda nasce transacional: para saber faturamento, venda por produto, por cliente, por forma de pagamento ou por período, cada pergunta vira um JOIN escrito na hora.</p>
       </div>
       <h2 class="type-label-caps">O que construí</h2>
       <div style="margin-top:var(--space-md)">
-          <p class="type-body-md u-measure">Este projeto ainda não tem o relato escrito. A ficha está diagramada e espera o texto: o que estava quebrado antes, o que foi construído e onde a coisa ficou difícil.</p>
+          <p class="type-body-md u-measure" style="margin-bottom:var(--space-lg)">Um data warehouse em esquema estrela: cinco tabelas de staging, oito dimensões e o fato de vendas.</p>
+          <p class="type-body-md u-measure" style="margin-bottom:var(--space-lg)"><strong>ETL em camadas.</strong> Gerador SQL, staging, transformação, dimensões, fato — nessa ordem. Cada etapa é um script versionado, e o dado bruto fica intacto na camada de entrada.</p>
+          <p class="type-body-md u-measure"><strong>Chave substituta em toda dimensão.</strong> A chave do sistema de origem não vira chave do modelo, então mudança de cadastro não reescreve histórico de venda.</p>
       </div>
     </div>
     <div class="uv-col" style="--col:9 / span 4">
@@ -86,31 +85,39 @@
       <div style="padding-top:var(--space-md)">
         <h2 class="type-label-caps">Stack</h2>
         <div class="uv-chips" style="margin-top:var(--space-md)">
-          <span class="uv-chip">Airflow</span>
-          <span class="uv-chip">dbt</span>
-          <span class="uv-chip">Postgres</span>
+          <span class="uv-chip">MySQL</span>
+          <span class="uv-chip">SQL</span>
         </div>
       </div>
       <div style="padding-top:var(--space-xl)">
         <h2 class="type-label-caps">Resultado</h2>
-        <div class="type-headline-md" style="margin-top:var(--space-md)">Seis fontes em um modelo só</div>
+        <div class="type-headline-md" style="margin-top:var(--space-md)">Cinco perguntas de negócio numa consulta só</div>
       </div>
       <div style="padding-top:var(--space-xl)">
         <h2 class="type-label-caps">Código</h2>
         <div style="margin-top:var(--space-md)">
-          <a href="https://github.com/josemarques/pipeline-vendas" target="_blank" rel="noreferrer noopener">github.com/josemarques/pipeline-vendas</a>
+          <a href="https://github.com/josem4rquez/ecommerce_dw" target="_blank" rel="noreferrer noopener">github.com/josem4rquez/ecommerce_dw</a>
         </div>
       </div>
     </div>
   </div>
 
-
+  <div class="uv-pair uv-sec">
+    <div><figure class="uv-fig">
+        <div class="uv-mat--sm"><div class="uv-slot" style="--ratio:1 / 1" data-slot="Print do modelo dimensional"></div></div>
+        <figcaption>O fato de vendas e as chaves que chegam nele.</figcaption>
+      </figure></div>
+    <div><figure class="uv-fig">
+        <div class="uv-mat--sm"><div class="uv-slot" style="--ratio:1 / 1" data-slot="Print de uma consulta e seu resultado"></div></div>
+        <figcaption>Faturamento por período, sem JOIN escrito na hora.</figcaption>
+      </figure></div>
+  </div>
 
   <nav class="uv-sec" style="padding-bottom:var(--space-xxxl)" aria-label="Outros projetos">
     <hr>
     <div class="uv-pager">
-      <a class="type-label-caps" href="../projetos/data-warehouse-de-e-commerce.html">Anterior · Data warehouse de e-commerce</a>
-      <a class="type-label-caps" href="../projetos/modelo-de-evasao-de-clientes.html">Próximo · Modelo de evasão de clientes</a>
+      <a class="type-label-caps" href="../projetos/servico-de-importacao-de-catalogo.html">Anterior · Serviço de importação de catálogo</a>
+      <a class="type-label-caps" href="../projetos/pipeline-de-vendas.html">Próximo · Pipeline de vendas</a>
     </div>
   </nav>
 </main>
@@ -128,12 +135,13 @@
         </div>
         <div class="uv-footer__col">
           <h2>Contato</h2>
-          <a href="mailto:jose@nofear.dev">jose@nofear.dev</a>
-          <a href="https://github.com/josemarques" rel="noreferrer noopener">github.com/josemarques</a>
+          <a href="mailto:josebermarques@gmail.com">josebermarques@gmail.com</a>
+          <a href="https://github.com/josem4rquez" rel="noreferrer noopener">github.com/josem4rquez</a>
         </div>
         <div class="uv-footer__col">
           <h2>No Fear</h2>
           <a href="../no-fear.html">A empresa</a>
+          
         </div>
       </div>
     </div>

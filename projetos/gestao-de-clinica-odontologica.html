@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>API de autenticação — José Marques</title>
-<meta name="description" content="Sessão, token e recuperação de senha para três produtos sobre a mesma base.">
+<title>Gestão de clínica odontológica — José Marques</title>
+<meta name="description" content="Agenda, prontuário e financeiro de uma clínica inteira, com o isolamento no banco.">
 <meta name="color-scheme" content="light">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -38,7 +38,7 @@
         </nav>
         <div class="uv-menu__foot">
           <hr class="uv-rule--light" style="margin-bottom:var(--space-md)">
-          <div class="type-body-sm">jose@nofear.dev</div>
+          <div class="type-body-sm">josebermarques@gmail.com</div>
         </div>
       </div>
     </header>
@@ -50,23 +50,20 @@
 
   <div class="u-grid-12" style="padding-top:var(--space-xl)">
     <div class="u-content-span">
-      <div class="type-meta-num" style="margin-bottom:var(--space-md)">02</div>
-      <h1 class="type-headline-lg">API de autenticação</h1>
+      <div class="type-meta-num" style="margin-bottom:var(--space-md)">01</div>
+      <h1 class="type-headline-lg">Gestão de clínica odontológica</h1>
     </div>
     <div class="uv-stack uv-col" style="--col:9 / span 4;padding-top:38px">
-      <div class="type-label-caps-sm">Back-end · 2025</div>
-      <div class="type-label-caps-sm">Sozinho</div>
-      <div class="type-label-caps-sm">Pessoal</div>
+      <div class="type-label-caps-sm">Back-end · 2026</div>
+      <div class="type-label-caps-sm">Feito em Equipe: 2 Backend e 2 Frontend</div>
+      <div class="type-label-caps-sm">Cliente No Fear</div>
     </div>
   </div>
 
   <div style="padding-top:var(--space-xl)">
-    <figure class="uv-plate">
-        <div class="uv-plate__field" style="--ratio:3 / 2">
-          <div class="uv-plate__title">API de autenticação</div>
-          <div class="uv-plate__meta">Back-end · 2025</div>
-        </div>
-        <figcaption>Placa tipográfica: a resposta do sistema quando não há foto à altura.</figcaption>
+    <figure class="uv-fig">
+        <div class="uv-mat"><img class="uv-img" style="--ratio:1911 / 961" src="../assets/img/clinica-inicio.png" width="1911" height="961" alt="Tela de início do sistema: saudação do dia, próximos atendimentos, acessos rápidos e mural da equipe."></div>
+        <figcaption>Início: os próximos atendimentos, o mural da equipe e o atalho para onde se voltou por último.</figcaption>
       </figure>
   </div>
 
@@ -74,11 +71,14 @@
     <div class="u-content-span">
       <h2 class="type-label-caps">O problema</h2>
       <div style="margin:var(--space-md) 0 var(--space-xl)">
-          <p class="type-body-md u-measure">Este projeto ainda não tem o relato escrito. A ficha está diagramada e espera o texto: o que estava quebrado antes, o que foi construído e onde a coisa ficou difícil.</p>
+          <p class="type-body-md u-measure">Agenda, prontuário e financeiro no mesmo lugar — com registro clínico que não se edita e dado que não passa de uma clínica para a outra.</p>
       </div>
       <h2 class="type-label-caps">O que construí</h2>
       <div style="margin-top:var(--space-md)">
-          <p class="type-body-md u-measure">Este projeto ainda não tem o relato escrito. A ficha está diagramada e espera o texto: o que estava quebrado antes, o que foi construído e onde a coisa ficou difícil.</p>
+          <p class="type-body-md u-measure" style="margin-bottom:var(--space-lg)">Software de gestão em produção: agenda por cadeira, prontuário, odontograma, orçamento, financeiro e equipe.</p>
+          <p class="type-body-md u-measure" style="margin-bottom:var(--space-lg)"><strong>Multi-tenancy no banco.</strong> Cada clínica é um tenant, isolada por Row Level Security do PostgreSQL — não por WHERE.</p>
+          <p class="type-body-md u-measure" style="margin-bottom:var(--space-lg)"><strong>Prontuário append-only.</strong> Um gatilho impede editar ou apagar; corrigir é escrever a versão seguinte.</p>
+          <p class="type-body-md u-measure"><strong>Permissão por papel.</strong> Cinco papéis. A interface esconde; quem barra é a API, com 403.</p>
       </div>
     </div>
     <div class="uv-col" style="--col:9 / span 4">
@@ -86,30 +86,46 @@
       <div style="padding-top:var(--space-md)">
         <h2 class="type-label-caps">Stack</h2>
         <div class="uv-chips" style="margin-top:var(--space-md)">
-          <span class="uv-chip">Node</span>
-          <span class="uv-chip">Redis</span>
-          <span class="uv-chip">Postgres</span>
+          <span class="uv-chip">FastAPI</span>
+          <span class="uv-chip">PostgreSQL 16</span>
+          <span class="uv-chip">SQLAlchemy</span>
+          <span class="uv-chip">Alembic</span>
+          <span class="uv-chip">React</span>
+          <span class="uv-chip">Vite</span>
+          <span class="uv-chip">Tailwind</span>
+          <span class="uv-chip">Docker</span>
+          <span class="uv-chip">Caddy</span>
         </div>
+        <p class="type-body-sm" style="margin-top:var(--space-md)">21 migrações versionadas. Tudo em Docker, atrás do Caddy com TLS automático, em VPS Linux.</p>
       </div>
       <div style="padding-top:var(--space-xl)">
         <h2 class="type-label-caps">Resultado</h2>
-        <div class="type-headline-md" style="margin-top:var(--space-md)">Uma base de identidade para três produtos</div>
+        <div class="type-headline-md" style="margin-top:var(--space-md)">Em produção, da agenda ao caixa</div>
       </div>
       <div style="padding-top:var(--space-xl)">
         <h2 class="type-label-caps">Código</h2>
         <div style="margin-top:var(--space-md)">
-          <a href="https://github.com/josemarques/auth" target="_blank" rel="noreferrer noopener">github.com/josemarques/auth</a>
+          <span class="type-body-sm">Repositório privado do cliente.</span>
         </div>
       </div>
     </div>
   </div>
 
-
+  <div class="uv-pair uv-sec">
+    <div><figure class="uv-fig">
+        <div class="uv-mat--sm"><img class="uv-img" style="--ratio:1 / 1" src="../assets/img/clinica-odontograma.png" width="1296" height="1296" alt="Odontograma do paciente: arcada superior e inferior numeradas, com a legenda de estados clínicos."></div>
+        <figcaption>Odontograma: o estado de cada dente.</figcaption>
+      </figure></div>
+    <div><figure class="uv-fig">
+        <div class="uv-mat--sm"><img class="uv-img" style="--ratio:1 / 1" src="../assets/img/clinica-dashboard.png" width="1305" height="1305" alt="Dashboard do sistema: faturamento, gastos, saldo, passivo clínico e itens pendentes do período."></div>
+        <figcaption>Dashboard: o que entrou e o que falta executar.</figcaption>
+      </figure></div>
+  </div>
 
   <nav class="uv-sec" style="padding-bottom:var(--space-xxxl)" aria-label="Outros projetos">
     <hr>
     <div class="uv-pager">
-      <a class="type-label-caps" href="../projetos/conciliacao-de-pagamentos.html">Anterior · Conciliação de pagamentos</a>
+      <a class="type-label-caps" href="../projetos/consolidacao-de-bases-de-rh.html">Anterior · Consolidação de bases de RH</a>
       <a class="type-label-caps" href="../projetos/fila-de-processamento-de-notas.html">Próximo · Fila de processamento de notas</a>
     </div>
   </nav>
@@ -118,7 +134,7 @@
     <div class="u-page">
       <div class="uv-footer__cols">
         <div class="uv-footer__brand">
-          <div class="uv-footer__mark">NoFear</div>
+          <div class="uv-footer__mark">No Fear</div>
           <div class="uv-footer__note">Portfólio de back-end e dados. Site estático, sem rastreamento.</div>
         </div>
         <div class="uv-footer__col">
@@ -128,8 +144,8 @@
         </div>
         <div class="uv-footer__col">
           <h2>Contato</h2>
-          <a href="mailto:jose@nofear.dev">jose@nofear.dev</a>
-          <a href="https://github.com/josemarques" rel="noreferrer noopener">github.com/josemarques</a>
+          <a href="mailto:josebermarques@gmail.com">josebermarques@gmail.com</a>
+          <a href="https://github.com/josem4rquez" rel="noreferrer noopener">github.com/josem4rquez</a>
         </div>
         <div class="uv-footer__col">
           <h2>No Fear</h2>

@@ -9,12 +9,12 @@ export const notaRodape =
   'Portfólio de back-end e dados. Site estático, sem rastreamento.';
 
 export const contato = {
-  email: 'jose@nofear.dev',
-  github: 'github.com/josemarques',
-  githubHref: 'https://github.com/josemarques',
-  linkedin: 'linkedin.com/in/josemarques',
-  linkedinHref: 'https://linkedin.com/in/josemarques',
-  cnpj: 'CNPJ 00.000.000/0001-00',
+  email: 'josebermarques@gmail.com',
+  github: 'github.com/josem4rquez',
+  githubHref: 'https://github.com/josem4rquez',
+  linkedin: 'linkedin.com/in/josé-marques-myperfil',
+  linkedinHref: 'https://www.linkedin.com/in/josé-marques-myperfil',
+  cnpj: '', // sai do rodapé enquanto for número de exemplo
 };
 
 /* Ordem e rótulos vêm do cabeçalho da tela 3a; o `id` liga a página ao item
@@ -36,59 +36,74 @@ const A_ESCREVER = [
 export const projetos = [
   {
     numero: '01',
-    slug: 'conciliacao-de-pagamentos',
-    nome: 'Conciliação de pagamentos',
+    slug: 'gestao-de-clinica-odontologica',
+    nome: 'Gestão de clínica odontológica',
     disciplina: 'Back-end',
     origem: 'No Fear',
-    stack: 'Go · Postgres',
-    chips: ['Go', 'Postgres', 'Docker', 'Grafana'],
+    stack: 'FastAPI · PostgreSQL',
+    chips: [
+      'FastAPI',
+      'PostgreSQL 16',
+      'SQLAlchemy',
+      'Alembic',
+      'React',
+      'Vite',
+      'Tailwind',
+      'Docker',
+      'Caddy',
+    ],
+    nota: '21 migrações versionadas. Tudo em Docker, atrás do Caddy com TLS automático, em VPS Linux.',
     ano: 2026,
     resumo:
-      'Fecha o dia de quatro adquirentes e aponta a diferença antes de o financeiro procurar.',
-    papel: 'Sozinho, do banco ao deploy',
+      'Agenda, prontuário e financeiro de uma clínica inteira, com o isolamento no banco.',
+    papel: 'Feito em Equipe: 2 Backend e 2 Frontend',
     problema: [
-      'O fechamento do dia era feito em quatro planilhas, uma por adquirente, comparadas à mão por duas pessoas. Quando a diferença aparecia, já era o dia seguinte e ninguém sabia de qual arquivo ela tinha vindo.',
+      'Agenda, prontuário e financeiro no mesmo lugar — com registro clínico que não se edita e dado que não passa de uma clínica para a outra.',
     ],
     construcao: [
-      'Um serviço que lê os arquivos dos quatro adquirentes, casa cada transação com o pedido e escreve a divergência em uma tabela só. O que não casa vai para uma tela de exceção, com o motivo escrito em português.',
-      'A parte difícil não foi o casamento: foi o arquivo que chega fora de ordem, repetido, ou com o mesmo identificador para duas cobranças. A regra de desempate está documentada e foi escrita junto com o financeiro.',
+      'Software de gestão em produção: agenda por cadeira, prontuário, odontograma, orçamento, financeiro e equipe.',
+      '**Multi-tenancy no banco.** Cada clínica é um tenant, isolada por Row Level Security do PostgreSQL — não por WHERE.',
+      '**Prontuário append-only.** Um gatilho impede editar ou apagar; corrigir é escrever a versão seguinte.',
+      '**Permissão por papel.** Cinco papéis. A interface esconde; quem barra é a API, com 403.',
     ],
-    resultado: 'De quatro planilhas para uma tela',
-    repo: 'github.com/josemarques/conciliacao',
-    repoHref: 'https://github.com/josemarques/conciliacao',
-    capa: 'Foto ou diagrama 3:2 — coloque uma imagem aqui',
-    capaLegenda: 'Sem foto à altura, esta posição vira placa tipográfica.',
+    resultado: 'Em produção, da agenda ao caixa',
+    /* Software de cliente: sem repositório público. Sem href, o bloco Código
+       vira texto em vez de link morto. */
+    repo: 'Repositório privado do cliente.',
+    repoHref: '',
+    capaImg: {
+      src: 'assets/img/clinica-inicio.png',
+      alt: 'Tela de início do sistema: saudação do dia, próximos atendimentos, acessos rápidos e mural da equipe.',
+      ratio: '1911 / 961',
+      largura: 1911,
+      altura: 961,
+    },
+    capaLegenda: 'Início: os próximos atendimentos, o mural da equipe e o atalho para onde se voltou por último.',
     prints: [
       {
-        vaga: 'Print da tela de exceção',
-        legenda: 'Tela de exceção: motivo em português, não código de erro.',
+        img: {
+          src: 'assets/img/clinica-odontograma.png',
+          alt: 'Odontograma do paciente: arcada superior e inferior numeradas, com a legenda de estados clínicos.',
+          ratio: '1 / 1',
+          largura: 1296,
+          altura: 1296,
+        },
+        legenda: 'Odontograma: o estado de cada dente.',
       },
       {
-        vaga: 'Print do fechamento do dia',
-        legenda: 'Fechamento do dia, com a diferença já apontada.',
+        img: {
+          src: 'assets/img/clinica-dashboard.png',
+          alt: 'Dashboard do sistema: faturamento, gastos, saldo, passivo clínico e itens pendentes do período.',
+          ratio: '1 / 1',
+          largura: 1305,
+          altura: 1305,
+        },
+        legenda: 'Dashboard: o que entrou e o que falta executar.',
       },
     ],
   },
   {
     numero: '02',
-    slug: 'api-de-autenticacao',
-    nome: 'API de autenticação',
-    disciplina: 'Back-end',
-    origem: 'Pessoal',
-    stack: 'Node · Redis',
-    chips: ['Node', 'Redis', 'Postgres'],
-    ano: 2025,
-    resumo:
-      'Sessão, token e recuperação de senha para três produtos sobre a mesma base.',
-    papel: 'Sozinho',
-    problema: A_ESCREVER,
-    construcao: A_ESCREVER,
-    resultado: 'Uma base de identidade para três produtos',
-    repo: 'github.com/josemarques/auth',
-    repoHref: 'https://github.com/josemarques/auth',
-  },
-  {
-    numero: '03',
     slug: 'fila-de-processamento-de-notas',
     nome: 'Fila de processamento de notas',
     disciplina: 'Back-end',
@@ -106,7 +121,7 @@ export const projetos = [
     repoHref: 'https://github.com/josemarques/fila-notas',
   },
   {
-    numero: '04',
+    numero: '03',
     slug: 'servico-de-importacao-de-catalogo',
     nome: 'Serviço de importação de catálogo',
     disciplina: 'Back-end',
@@ -122,6 +137,48 @@ export const projetos = [
     resultado: 'Planilha livre virando produto publicável',
     repo: 'github.com/josemarques/catalogo',
     repoHref: 'https://github.com/josemarques/catalogo',
+  },
+  {
+    numero: '04',
+    slug: 'data-warehouse-de-e-commerce',
+    nome: 'Data warehouse de e-commerce',
+    disciplina: 'Dados',
+    origem: 'Pessoal',
+    stack: 'MySQL · SQL',
+    chips: ['MySQL', 'SQL'],
+    ano: 2026,
+    resumo:
+      'Venda transacional vira esquema estrela: staging, oito dimensões e um fato consultável.',
+    papel: 'Sozinho, da modelagem ao carregamento',
+    problema: [
+      'Dado de venda nasce transacional: para saber faturamento, venda por produto, por cliente, por forma de pagamento ou por período, cada pergunta vira um JOIN escrito na hora.',
+    ],
+    construcao: [
+      'Um data warehouse em esquema estrela: cinco tabelas de staging, oito dimensões e o fato de vendas.',
+      '**ETL em camadas.** Gerador SQL, staging, transformação, dimensões, fato — nessa ordem. Cada etapa é um script versionado, e o dado bruto fica intacto na camada de entrada.',
+      '**Chave substituta em toda dimensão.** A chave do sistema de origem não vira chave do modelo, então mudança de cadastro não reescreve histórico de venda.',
+    ],
+    resultado: 'Cinco perguntas de negócio numa consulta só',
+    repo: 'github.com/josem4rquez/ecommerce_dw',
+    repoHref: 'https://github.com/josem4rquez/ecommerce_dw',
+    capaImg: {
+      src: 'assets/img/ecommerce-dw-estrela.png',
+      alt: 'Diagrama do esquema estrela: fato_vendas ao centro, ligado às dimensões cliente, produto, vendedor, categoria, data, pagamento, fornecedor e estoque, com as tabelas de staging à direita.',
+      ratio: '3 / 2',
+      largura: 1436,
+      altura: 957,
+    },
+    capaLegenda: 'Um fato de vendas ao centro, oito dimensões em volta.',
+    prints: [
+      {
+        vaga: 'Print do modelo dimensional',
+        legenda: 'O fato de vendas e as chaves que chegam nele.',
+      },
+      {
+        vaga: 'Print de uma consulta e seu resultado',
+        legenda: 'Faturamento por período, sem JOIN escrito na hora.',
+      },
+    ],
   },
   {
     numero: '05',

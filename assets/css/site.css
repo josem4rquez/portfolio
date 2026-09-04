@@ -14,7 +14,8 @@
   padding-top:var(--space-lg);padding-bottom:var(--space-lg);
   border-bottom:var(--border-light);
 }
-.uv-brand{
+.uv-brand,
+.uv-brand:visited{
   font-family:var(--font-serif);font-size:var(--type-index-title-size);
   line-height:1;letter-spacing:0.01em;
   color:var(--text-ink);text-decoration:none;
@@ -65,12 +66,14 @@
   text-transform:uppercase;text-decoration:none;
   padding:var(--space-md);border-radius:0;cursor:pointer;transition:none;
 }
-.uv-btn--primary{
+.uv-btn--primary,
+.uv-btn--primary:visited{
   background:var(--button-primary-bg);color:var(--button-primary-text);
   border:1px solid transparent;
 }
 .uv-btn--primary:hover{background:var(--button-primary-bg-hover);color:var(--button-primary-text)}
-.uv-btn--secondary{
+.uv-btn--secondary,
+.uv-btn--secondary:visited{
   background:transparent;color:var(--button-secondary-text);
   border:var(--border-interactive-line);
 }
@@ -99,7 +102,8 @@
 }
 .uv-index--no-top-rule{border-top:none}
 /* A linha inteira é o link, não só o nome. */
-.uv-index-row{
+.uv-index-row,
+.uv-index-row:visited{
   text-decoration:none;color:var(--text-ink);
   background:transparent;border-bottom:var(--border-structural);transition:none;
 }
@@ -264,6 +268,21 @@
   .uv-svc__num{grid-row:1;grid-column:1}
   .uv-svc__name{grid-row:1;grid-column:2}
   .uv-svc__text{grid-row:2;grid-column:1 / -1}
+}
+
+/* --- Ficha de stack ------------------------------------------------------ */
+/* Rótulo à esquerda, ferramentas à direita, um filete leve por linha. Mesma
+   lógica do índice: a coluna fixa some no corte de 640px e as duas partes
+   viram uma pilha. */
+.uv-spec{margin:0;border-top:var(--border-light)}
+.uv-spec__row{
+  display:grid;grid-template-columns:9rem 1fr;gap:var(--space-md);
+  align-items:baseline;padding:var(--space-md) 0;
+  border-bottom:var(--border-light);
+}
+.uv-spec dd{margin:0}
+@media (max-width:639px){
+  .uv-spec__row{grid-template-columns:1fr;gap:var(--space-xs)}
 }
 
 /* --- Ritmo de página ------------------------------------------------------ */

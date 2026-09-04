@@ -37,13 +37,15 @@ const esc = (s) =>
     .replace(/>/g, '&gt;')
     .replace(/"/g, '&quot;');
 
+const forte = (s) => s.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+
 const paragrafos = (linhas, classe = 'type-body-md u-measure', espaco = 'var(--space-lg)') =>
   linhas
     .map(
       (t, i) =>
         `<p class="${classe}"${
           i < linhas.length - 1 ? ` style="margin-bottom:${espaco}"` : ''
-        }>${esc(t)}</p>`
+        }>${forte(esc(t))}</p>`
     )
     .join('\n          ');
 
@@ -107,7 +109,7 @@ function rodape(base) {
         <div class="uv-footer__col">
           <h2>No Fear</h2>
           <a href="${base}no-fear.html">A empresa</a>
-          <span>${esc(contato.cnpj)}</span>
+          ${contato.cnpj ? `<span>${esc(contato.cnpj)}</span>` : ''}
         </div>
       </div>
     </div>
@@ -148,6 +150,17 @@ function cabecaSecao(rotulo, contagem, tag = 'h2') {
 function figura(vaga, proporcao, legenda, mat = 'uv-mat') {
   return `<figure class="uv-fig">
         <div class="${mat}"><div class="uv-slot" style="--ratio:${proporcao}" data-slot="${esc(vaga)}"></div></div>
+        ${legenda ? `<figcaption>${esc(legenda)}</figcaption>` : ''}
+      </figure>`;
+}
+
+/** Figura com imagem de verdade. A vaga do figura() é só o estado "sem imagem". */
+function imagem(img, legenda, base = '', mat = 'uv-mat') {
+  const { src, alt, ratio = '3 / 2', largura, altura } = img;
+  return `<figure class="uv-fig">
+        <div class="${mat}"><img class="uv-img" style="--ratio:${ratio}" src="${esc(base + src)}"${
+    largura ? ` width="${largura}"` : ''
+  }${altura ? ` height="${altura}"` : ''} alt="${esc(alt)}"></div>
         ${legenda ? `<figcaption>${esc(legenda)}</figcaption>` : ''}
       </figure>`;
 }
@@ -272,7 +285,7 @@ function paginaProjetos() {
   const conteudo = `  <div class="u-grid-12" style="padding-top:var(--space-xxl)">
     <div class="u-content-span">
       <h1 class="type-headline-lg" style="margin-bottom:var(--space-lg)">Projetos</h1>
-      <p class="type-body-md u-measure">Oito sistemas que ficaram de pé, em ordem de disciplina e não de data. Cada linha abre a ficha com o problema, a stack e o código.</p>
+      <p class="type-body-md u-measure">Oito sistemas que construí, agrupados por disciplina. Cada linha abre a ficha: o problema, a stack, o resultado e o código.</p>
     </div>
     <div class="uv-col" style="--col:9 / span 4;padding-top:10px">
       <div class="type-meta-num">${String(projetos.length).padStart(2, '0')} entradas · ${Math.min(...anos)}—${Math.max(...anos)}</div>
@@ -298,14 +311,23 @@ ${bloco('Dados')}
 /* 3f — Ficha de projeto */
 function paginaFicha(p, anterior, proximo) {
   const base = '../';
-  const capa = p.capa
+  const capa = p.capaImg
+    ? imagem(p.capaImg, p.capaLegenda, base)
+    : p.capa
     ? figura(p.capa, '3 / 2', p.capaLegenda)
     : placa(p.nome, `${p.disciplina} · ${p.ano}`, '3 / 2', 'Placa tipográfica: a resposta do sistema quando não há foto à altura.');
 
   const prints = p.prints
     ? `  <div class="uv-pair uv-sec">
     ${p.prints
-      .map((pr) => `<div>${figura(pr.vaga, '1 / 1', pr.legenda, 'uv-mat--sm')}</div>`)
+      .map(
+        (pr) =>
+          `<div>${
+            pr.img
+              ? imagem(pr.img, pr.legenda, base, 'uv-mat--sm')
+              : figura(pr.vaga, '1 / 1', pr.legenda, 'uv-mat--sm')
+          }</div>`
+      )
       .join('\n    ')}
   </div>`
     : '';
@@ -352,7 +374,10 @@ function paginaFicha(p, anterior, proximo) {
         <h2 class="type-label-caps">Stack</h2>
         <div class="uv-chips" style="margin-top:var(--space-md)">
           ${p.chips.map((c) => `<span class="uv-chip">${esc(c)}</span>`).join('\n          ')}
-        </div>
+        </div>${
+          p.nota ? `
+        <p class="type-body-sm" style="margin-top:var(--space-md)">${esc(p.nota)}</p>` : ''
+        }
       </div>
       <div style="padding-top:var(--space-xl)">
         <h2 class="type-label-caps">Resultado</h2>
@@ -361,7 +386,11 @@ function paginaFicha(p, anterior, proximo) {
       <div style="padding-top:var(--space-xl)">
         <h2 class="type-label-caps">Código</h2>
         <div style="margin-top:var(--space-md)">
-          <a href="${esc(p.repoHref)}" target="_blank" rel="noreferrer noopener">${esc(p.repo)}</a>
+          ${
+            p.repoHref
+              ? `<a href="${esc(p.repoHref)}" target="_blank" rel="noreferrer noopener">${esc(p.repo)}</a>`
+              : `<span class="type-body-sm">${esc(p.repo)}</span>`
+          }
         </div>
       </div>
     </div>
