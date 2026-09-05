@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Pipeline de vendas — José Marques</title>
-<meta name="description" content="ETL diário de seis fontes para um modelo que o time comercial consulta sozinho.">
+<title>Dashboard de compras — José Marques</title>
+<meta name="description" content="Painel de compras com filtro que recalcula na hora: faturamento por loja, vendedor e produto.">
 <meta name="color-scheme" content="light">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -38,7 +38,7 @@
         </nav>
         <div class="uv-menu__foot">
           <hr class="uv-rule--light" style="margin-bottom:var(--space-md)">
-          <div class="type-body-sm">jose@nofear.dev</div>
+          <div class="type-body-sm">josebermarques@gmail.com</div>
         </div>
       </div>
     </header>
@@ -51,22 +51,19 @@
   <div class="u-grid-12" style="padding-top:var(--space-xl)">
     <div class="u-content-span">
       <div class="type-meta-num" style="margin-bottom:var(--space-md)">04</div>
-      <h1 class="type-headline-lg">Pipeline de vendas</h1>
+      <h1 class="type-headline-lg">Dashboard de compras</h1>
     </div>
     <div class="uv-stack uv-col" style="--col:9 / span 4;padding-top:38px">
       <div class="type-label-caps-sm">Dados · 2026</div>
-      <div class="type-label-caps-sm">Sozinho, do banco ao deploy</div>
-      <div class="type-label-caps-sm">Cliente No Fear</div>
+      <div class="type-label-caps-sm">Sozinho, do dataset ao painel</div>
+      <div class="type-label-caps-sm">Estudo</div>
     </div>
   </div>
 
   <div style="padding-top:var(--space-xl)">
-    <figure class="uv-plate">
-        <div class="uv-plate__field" style="--ratio:3 / 2">
-          <div class="uv-plate__title">Pipeline de vendas</div>
-          <div class="uv-plate__meta">Dados · 2026</div>
-        </div>
-        <figcaption>Placa tipográfica: a resposta do sistema quando não há foto à altura.</figcaption>
+    <figure class="uv-fig">
+        <div class="uv-mat"><div class="uv-slot" style="--ratio:3 / 2" data-slot="Print do painel — 3:2"></div></div>
+        <figcaption>O painel inteiro: indicadores em cima, filtros à esquerda.</figcaption>
       </figure>
   </div>
 
@@ -74,11 +71,13 @@
     <div class="u-content-span">
       <h2 class="type-label-caps">O problema</h2>
       <div style="margin:var(--space-md) 0 var(--space-xl)">
-          <p class="type-body-md u-measure">Este projeto ainda não tem o relato escrito. A ficha está diagramada e espera o texto: o que estava quebrado antes, o que foi construído e onde a coisa ficou difícil.</p>
+          <p class="type-body-md u-measure">Faturamento por loja, vendedor e produto — sem ferramenta de BI paga nem planilha atualizada à mão.</p>
       </div>
       <h2 class="type-label-caps">O que construí</h2>
       <div style="margin-top:var(--space-md)">
-          <p class="type-body-md u-measure">Este projeto ainda não tem o relato escrito. A ficha está diagramada e espera o texto: o que estava quebrado antes, o que foi construído e onde a coisa ficou difícil.</p>
+          <p class="type-body-md u-measure" style="margin-bottom:var(--space-lg)">Painel em Streamlit sobre três bases cruzadas em Pandas: compras, produtos e lojas.</p>
+          <p class="type-body-md u-measure" style="margin-bottom:var(--space-lg)"><strong>Filtro que refaz a conta.</strong> Cada filtro recalcula os agregados, não recorta tabela pronta.</p>
+          <p class="type-body-md u-measure"><strong>Base gerada por script.</strong> O dataset sai do próprio repositório, então o painel roda em qualquer máquina.</p>
       </div>
     </div>
     <div class="uv-col" style="--col:9 / span 4">
@@ -86,25 +85,34 @@
       <div style="padding-top:var(--space-md)">
         <h2 class="type-label-caps">Stack</h2>
         <div class="uv-chips" style="margin-top:var(--space-md)">
-          <span class="uv-chip">Airflow</span>
-          <span class="uv-chip">dbt</span>
-          <span class="uv-chip">Postgres</span>
+          <span class="uv-chip">Python</span>
+          <span class="uv-chip">Pandas</span>
+          <span class="uv-chip">Streamlit</span>
         </div>
       </div>
       <div style="padding-top:var(--space-xl)">
         <h2 class="type-label-caps">Resultado</h2>
-        <div class="type-headline-md" style="margin-top:var(--space-md)">Seis fontes em um modelo só</div>
+        <div class="type-headline-md" style="margin-top:var(--space-md)">Faturamento por loja, vendedor e produto numa tela</div>
       </div>
       <div style="padding-top:var(--space-xl)">
         <h2 class="type-label-caps">Código</h2>
         <div style="margin-top:var(--space-md)">
-          <a href="https://github.com/josemarques/pipeline-vendas" target="_blank" rel="noreferrer noopener">github.com/josemarques/pipeline-vendas</a>
+          <a href="https://github.com/josem4rquez/dashboard_compras" target="_blank" rel="noreferrer noopener">github.com/josem4rquez/dashboard_compras</a>
         </div>
       </div>
     </div>
   </div>
 
-
+  <div class="uv-pair uv-sec">
+    <div><figure class="uv-fig">
+        <div class="uv-mat--sm"><div class="uv-slot" style="--ratio:1 / 1" data-slot="Print de um filtro aplicado"></div></div>
+        <figcaption>Um filtro, e os números da tela toda mudam.</figcaption>
+      </figure></div>
+    <div><figure class="uv-fig">
+        <div class="uv-mat--sm"><div class="uv-slot" style="--ratio:1 / 1" data-slot="Print do faturamento por loja"></div></div>
+        <figcaption>Faturamento por loja e por vendedor, lado a lado.</figcaption>
+      </figure></div>
+  </div>
 
   <nav class="uv-sec" style="padding-bottom:var(--space-xxxl)" aria-label="Outros projetos">
     <hr>
@@ -128,12 +136,13 @@
         </div>
         <div class="uv-footer__col">
           <h2>Contato</h2>
-          <a href="mailto:jose@nofear.dev">jose@nofear.dev</a>
-          <a href="https://github.com/josemarques" rel="noreferrer noopener">github.com/josemarques</a>
+          <a href="mailto:josebermarques@gmail.com">josebermarques@gmail.com</a>
+          <a href="https://github.com/josem4rquez" rel="noreferrer noopener">github.com/josem4rquez</a>
         </div>
         <div class="uv-footer__col">
           <h2>No Fear</h2>
           <a href="../no-fear.html">A empresa</a>
+          
         </div>
       </div>
     </div>

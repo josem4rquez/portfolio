@@ -219,7 +219,7 @@ function paginaHome() {
     </div>
   </div>
 
-  <p class="type-body-lg u-measure" style="margin-top:var(--space-xl)">Trabalho com back-end e dados: sistemas que precisam rodar todos os dias sem ninguém olhando.</p>
+  <p class="type-body-lg u-measure" style="margin-top:var(--space-xl)">Construo os sistemas que a operação de uma empresa usa todo dia — e respondo por eles depois que entram no ar.</p>
 
   <div class="u-grid-12" style="padding-top:var(--space-xxl)">
     <div class="u-content-span">
