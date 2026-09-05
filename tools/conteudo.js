@@ -152,15 +152,33 @@ export const projetos = [
     resultado: 'CRUD documentado, com e-mail único garantido no serviço',
     repo: 'github.com/josem4rquez/projeto-informacoes',
     repoHref: 'https://github.com/josem4rquez/projeto-informacoes',
-    capa: 'Print do Swagger UI — 3:2',
+    capaImg: {
+      src: 'assets/img/api-clientes-swagger.png',
+      alt: 'Swagger UI da API: cliente-controller com GET, POST, PUT e DELETE em /api/clientes, home-controller e o schema Cliente.',
+      ratio: '1445 / 963',
+      largura: 1445,
+      altura: 963,
+    },
     capaLegenda: 'A documentação sai do código: Swagger UI gerado pelas assinaturas.',
     prints: [
       {
-        vaga: 'Print de um POST e a resposta',
-        legenda: 'Criação de cliente, com o e-mail repetido barrado.',
+        img: {
+          src: 'assets/img/api-clientes-post.png',
+          alt: 'Swagger UI executando POST /api/clientes com nome e e-mail no corpo; a resposta é 201 com o cliente criado, já com id.',
+          ratio: '1 / 1',
+          largura: 1135,
+          altura: 1135,
+        },
+        legenda: 'POST /api/clientes: 201 e o cliente criado de volta, com id.',
       },
       {
-        vaga: 'Print da estrutura de pastas',
+        img: {
+          src: 'assets/img/api-clientes-estrutura.png',
+          alt: 'Árvore de pastas do projeto: src/main/java com controller, dto, entity, openfeign, repository e service, mais resources, test e pom.xml.',
+          ratio: '1 / 1',
+          largura: 760,
+          altura: 760,
+        },
         legenda: 'Controller, service, repository e DTO, cada um no seu lugar.',
       },
     ],
