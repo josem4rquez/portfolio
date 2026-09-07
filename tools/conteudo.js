@@ -260,12 +260,24 @@ export const projetos = [
     resultado: 'Faturamento por loja, vendedor e produto numa tela',
     repo: 'github.com/josem4rquez/dashboard_compras',
     repoHref: 'https://github.com/josem4rquez/dashboard_compras',
-    capa: 'Print do painel — 3:2',
-    capaLegenda: 'O painel inteiro: indicadores em cima, filtros à esquerda.',
+    capaImg: {
+      src: 'assets/img/dashboard-compras-tabela.png',
+      alt: 'Painel em Streamlit: à esquerda, índice loja, coluna produto, valor comissao e métrica soma; à direita, a tabela dinâmica por loja e produto, com linha de total geral.',
+      ratio: '1466 / 400',
+      largura: 1466,
+      altura: 400,
+    },
+    capaLegenda: 'Escolhe índice, coluna e métrica à esquerda; a tabela refaz a soma.',
     prints: [
       {
-        vaga: 'Print de um filtro aplicado',
-        legenda: 'Um filtro, e os números da tela toda mudam.',
+        img: {
+          src: 'assets/img/dashboard-compras-numeros.png',
+          alt: 'Painel de números do período: valor e quantidade de compras no total, na principal loja (Curitiba) e do principal vendedor, com a comissão.',
+          ratio: '1 / 1',
+          largura: 700,
+          altura: 700,
+        },
+        legenda: 'Escolhido o período, o painel aponta a loja e o vendedor do topo.',
       },
       {
         vaga: 'Print do faturamento por loja',
