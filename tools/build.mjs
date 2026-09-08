@@ -17,6 +17,7 @@ import { dirname, join } from 'node:path';
 
 import {
   marca,
+  marcaRodape,
   notaRodape,
   contato,
   navegacao,
@@ -24,6 +25,8 @@ import {
   entregasNoFear,
   servicosNoFear,
   colecao,
+  stack,
+  retrato,
 } from './conteudo.js';
 
 const raiz = join(dirname(fileURLToPath(import.meta.url)), '..');
@@ -36,6 +39,11 @@ const esc = (s) =>
     .replace(/</g, '&lt;')
     .replace(/>/g, '&gt;')
     .replace(/"/g, '&quot;');
+
+/* O índice diz o número por extenso: "Sete sistemas", não "7 sistemas". */
+const porExtenso = (n) =>
+  ['Zero','Um','Dois','Três','Quatro','Cinco','Seis','Sete','Oito','Nove','Dez','Onze','Doze'][n] ??
+  String(n);
 
 const forte = (s) => s.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
 
@@ -93,7 +101,7 @@ function rodape(base) {
     <div class="u-page">
       <div class="uv-footer__cols">
         <div class="uv-footer__brand">
-          <div class="uv-footer__mark">${esc(marca)}</div>
+          <div class="uv-footer__mark">${esc(marcaRodape)}</div>
           <div class="uv-footer__note">${esc(notaRodape)}</div>
         </div>
         <div class="uv-footer__col">
@@ -165,6 +173,22 @@ function imagem(img, legenda, base = '', mat = 'uv-mat') {
       </figure>`;
 }
 
+/* Placa que toca: a propria placa e o botao. Titulo em cima, sinal de play no
+   meio, meta embaixo. O <audio controls> nativo fica logo abaixo e so some
+   quando o script roda: sem JavaScript, ainda da para ouvir. */
+function placaAudio(item) {
+  return `<figure class="uv-plate">
+        <button class="uv-plate__field uv-plate__field--toca" type="button" data-player-botao style="--ratio:${item.proporcao}" aria-label="Ouvir ${esc(item.nome)}">
+          <span class="uv-plate__title">${esc(item.nome)}</span>
+          <span class="uv-plate__play" aria-hidden="true"></span>
+          <span class="uv-plate__meta">${esc(item.meta)}</span>
+        </button>
+      </figure>
+      <div class="uv-player" data-player>
+        <audio controls preload="none" src="${esc(item.audio)}">Seu navegador não toca este arquivo.</audio>
+      </div>`;
+}
+
 /** Plate: substitui a imagem quando não há foto à altura. */
 function placa(titulo, meta, proporcao, legenda) {
   return `<figure class="uv-plate">
@@ -215,7 +239,7 @@ function paginaHome() {
     </div>
     <div class="uv-col" style="--col:9 / span 4;padding-top:14px">
       <div class="type-label-caps-sm">Back-end · Dados</div>
-      <div class="type-meta-num" style="margin-top:var(--space-sm)">Brasil · Desde 2021</div>
+      <div class="type-meta-num" style="margin-top:var(--space-sm)">Brasil · Desde 2024</div>
     </div>
   </div>
 
@@ -223,11 +247,25 @@ function paginaHome() {
 
   <div class="u-grid-12" style="padding-top:var(--space-xxl)">
     <div class="u-content-span">
-      <p class="type-body-md u-measure" style="margin-bottom:var(--space-lg)">A maior parte do que faço é integração: fazer conversar sistemas que não foram feitos para isso, e deixar o número certo na tela de quem precisa decidir. Escrevo em Go, Python e SQL, e cuido do que vem depois — fila, retentativa, log, o dia em que a API do outro lado cai.</p>
-      <p class="type-body-md u-measure">Em 2024 abri a <strong>No Fear</strong> para levar esse trabalho até o fim com as empresas que me procuram. Antes disso foram três anos de faculdade e de projetos que ninguém pediu; boa parte deles está no índice.</p>
+      <p class="type-body-md u-measure" style="margin-bottom:var(--space-lg)">A maior parte do que faço é integração: fazer conversar sistemas que não foram feitos para isso. O trabalho de verdade vem depois: fila, retentativa, log, o dia em que a API do outro lado cai.</p>
+      <p class="type-body-md u-measure">Em 2026 entrei na faculdade de Sistemas de Informação e abri a <strong>No Fear</strong>, onde levo esse trabalho até o fim com as empresas que me procuram.</p>
+
+      <div style="margin-top:var(--space-xl)">
+        <h2 class="type-label-caps-sm" style="margin-bottom:var(--space-md)">Stack</h2>
+        <dl class="uv-spec">
+${stack
+  .map(
+    ([rotulo, itens]) => `          <div class="uv-spec__row">
+            <dt class="type-label-caps-sm">${esc(rotulo)}</dt>
+            <dd class="type-body-sm">${esc(itens)}</dd>
+          </div>`
+  )
+  .join('\n')}
+        </dl>
+      </div>
     </div>
     <div class="uv-col" style="--col:8 / span 5">
-      ${figura('Retrato 4:5 — coloque uma foto aqui', '4 / 5', 'Retrato em 4:5. Avatar redondo não existe no sistema.')}
+      ${imagem(retrato, '', '')}
     </div>
   </div>
 
@@ -236,10 +274,13 @@ function paginaHome() {
     <div class="u-grid-12" style="padding-top:var(--space-lg)">
       <div class="uv-col" style="--col:1 / span 3">
         <h2 class="type-label-caps">A No Fear</h2>
+        <figure class="uv-fig" style="margin-top:var(--space-sm)">
+          <div class="uv-mat--sm"><img class="uv-img" style="--ratio:1 / 1" src="assets/img/no-fear.svg" width="512" height="512" alt="Logotipo da No Fear: três barras ascendentes sobre campo verde oliva."></div>
+        </figure>
       </div>
       <div class="uv-col" style="--col:5 / span 6">
-        <h3 class="type-headline-md" style="margin-bottom:var(--space-lg)">Software sob medida, entregue em partes</h3>
-        <p class="type-body-md" style="margin-bottom:var(--space-lg)">A empresa existe para uma coisa: assumir o sistema interno que a planilha não aguenta mais. Escopo fechado, entrega em partes, código no repositório do cliente.</p>
+        <h3 class="type-headline-md" style="margin-bottom:var(--space-lg)">Sistemas de gestão, integrados a business intelligence</h3>
+        <p class="type-body-md" style="margin-bottom:var(--space-lg)">A No Fear assume o sistema interno que a planilha não aguenta mais. Escopo fechado, entrega em partes, código no repositório do cliente.</p>
         <a href="no-fear.html">Ver a No Fear</a>
       </div>
     </div>
@@ -285,7 +326,7 @@ function paginaProjetos() {
   const conteudo = `  <div class="u-grid-12" style="padding-top:var(--space-xxl)">
     <div class="u-content-span">
       <h1 class="type-headline-lg" style="margin-bottom:var(--space-lg)">Projetos</h1>
-      <p class="type-body-md u-measure">Oito sistemas que construí, agrupados por disciplina. Cada linha abre a ficha: o problema, a stack, o resultado e o código.</p>
+      <p class="type-body-md u-measure">${porExtenso(projetos.length)} sistemas que construí, agrupados por disciplina. Cada linha abre a ficha: o problema, a stack, o resultado e o código.</p>
     </div>
     <div class="uv-col" style="--col:9 / span 4;padding-top:10px">
       <div class="type-meta-num">${String(projetos.length).padStart(2, '0')} entradas · ${Math.min(...anos)}—${Math.max(...anos)}</div>
@@ -296,12 +337,14 @@ ${bloco('Back-end')}
 
 ${bloco('Dados')}
 
+${bloco('Front-end')}
+
   <div class="uv-tail"></div>`;
 
   return documento({
     titulo: 'Projetos — José Marques',
     descricao:
-      'Oito sistemas de back-end e dados, em ordem de disciplina: o problema, a stack e o código de cada um.',
+      'Sistemas de back-end, dados e front-end, em ordem de disciplina: o problema, a stack e o código de cada um.',
     atual: 'projetos',
     base: '',
     conteudo,
@@ -317,7 +360,16 @@ function paginaFicha(p, anterior, proximo) {
     ? figura(p.capa, '3 / 2', p.capaLegenda)
     : placa(p.nome, `${p.disciplina} · ${p.ano}`, '3 / 2', 'Placa tipográfica: a resposta do sistema quando não há foto à altura.');
 
-  const prints = p.prints
+  const umPrint = p.prints && p.prints.length === 1;
+  const prints = umPrint
+    ? `  <div class="uv-sec">
+    ${
+      p.prints[0].img
+        ? imagem(p.prints[0].img, p.prints[0].legenda, base, 'uv-mat--sm')
+        : figura(p.prints[0].vaga, '3 / 2', p.prints[0].legenda, 'uv-mat--sm')
+    }
+  </div>`
+    : p.prints
     ? `  <div class="uv-pair uv-sec">
     ${p.prints
       .map(
@@ -423,11 +475,11 @@ function paginaNoFear() {
   const conteudo = `  <div class="u-grid-12" style="padding-top:var(--space-xxl)">
     <div class="uv-col" style="--col:1 / span 8">
       <div class="type-label-caps">A empresa</div>
-      <h1 class="type-headline-lg" style="margin:var(--space-md) 0 var(--space-lg);max-width:22ch">Software sob medida para empresas</h1>
-      <p class="type-body-lg u-measure">A No Fear existe para assumir o sistema interno que a planilha não aguenta mais. Escopo fechado antes de começar, entrega em partes, código no repositório do cliente.</p>
+      <h1 class="type-headline-lg" style="margin:var(--space-md) 0 var(--space-lg);max-width:22ch">Sistemas de gestão integrados a business intelligence</h1>
+      <p class="type-body-lg u-measure">A No Fear é especializada em sistemas de gestão: assumir o sistema interno que a planilha não aguenta mais. Cada entrega sai com business intelligence acoplado — o dado que a operação registra é o mesmo que aparece no painel de quem decide. Escopo fechado antes de começar, entrega em partes, código no repositório do cliente.</p>
     </div>
     <div class="uv-col" style="--col:10 / span 3;text-align:right;padding-top:6px">
-      <div class="type-meta-num">Fundada em 2024</div>
+      <div class="type-meta-num">Fundada em 2026</div>
     </div>
   </div>
 
@@ -453,9 +505,9 @@ ${servicos}
   </div>`;
 
   return documento({
-    titulo: 'No Fear — Software sob medida para empresas',
+    titulo: 'No Fear — Sistemas de gestão com business intelligence',
     descricao:
-      'A No Fear assume o sistema interno que a planilha não aguenta mais: escopo fechado, entrega em partes, código no repositório do cliente.',
+      'A No Fear é especializada em sistemas de gestão integrados a business intelligence: escopo fechado, entrega em partes, código no repositório do cliente.',
     atual: 'nofear',
     base: '',
     conteudo,
@@ -464,24 +516,46 @@ ${servicos}
 
 /* 3i — Coleção de Criações */
 function paginaColecao() {
-  const celulas = colecao
-    .map((item, i) => {
-      const corpo =
-        item.tipo === 'placa'
-          ? placa(item.nome, item.meta, item.proporcao, item.legenda)
-          : figura(item.vaga, item.proporcao, null, 'uv-mat--sm');
-      const legenda =
-        item.tipo === 'placa'
-          ? ''
-          : `\n      <div class="type-caption" style="margin-top:6px">${esc(item.legenda)}</div>`;
-      return `    <div${i % 2 === 1 ? ' class="uv-media-grid__offset"' : ''}>
-      ${corpo}
-      <div class="uv-media-head">
+  /* Peca com `destaque` nao abre celula nova: entra dentro da celula anterior,
+     logo abaixo da imagem que ja estava la. Numa grade de duas colunas, um item
+     sozinho numa linha nova cai muito abaixo quando a coluna vizinha e alta. */
+  const peca = (item) => {
+    const corpo = item.img
+      ? imagem(item.img, null, '', 'uv-mat--sm')
+      : item.audio
+      ? placaAudio(item)
+      : item.tipo === 'placa'
+      ? placa(item.nome, item.meta, item.proporcao, item.legenda)
+      : figura(item.vaga, item.proporcao, null, 'uv-mat--sm');
+    const legenda =
+      !item.legenda || (item.tipo === 'placa' && !item.audio)
+        ? ''
+        : `\n      <div class="type-caption" style="margin-top:6px">${esc(item.legenda)}</div>`;
+    const cabeca = item.audio
+      ? ''
+      : `\n      <div class="uv-media-head">
         <span class="type-index-title">${esc(item.nome)}</span>
-        <span class="type-meta-num">${esc(item.ano)}</span>
-      </div>${legenda}
-    </div>`;
-    })
+        ${item.ano ? `<span class="type-meta-num">${esc(item.ano)}</span>` : ''}
+      </div>`;
+    return `${corpo}${cabeca}${legenda}`;
+  };
+
+  const blocos = [];
+  colecao.forEach((item) => {
+    if (item.destaque && blocos.length) {
+      blocos[blocos.length - 1] += `\n\n      <div style="margin-top:var(--space-xl)">${peca(item)}</div>`;
+      return;
+    }
+    blocos.push(peca(item));
+  });
+
+  const celulas = blocos
+    .map(
+      (b, i) =>
+        `    <div${i % 2 === 1 ? ' class="uv-media-grid__offset"' : ''}>
+      ${b}
+    </div>`
+    )
     .join('\n');
 
   const conteudo = `  <div class="u-grid-12" style="padding-top:var(--space-xxl)">

@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Fila de processamento de notas — José Marques</title>
-<meta name="description" content="Absorve pico de emissão sem perder documento, com retentativa e trilha de erro.">
+<title>Relatório de vendas e lucro em Power BI — José Marques</title>
+<meta name="description" content="Vendas, desconto e custo numa página; o lucro aberto por ano, país, segmento e trimestre nas outras.">
 <meta name="color-scheme" content="light">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -38,7 +38,7 @@
         </nav>
         <div class="uv-menu__foot">
           <hr class="uv-rule--light" style="margin-bottom:var(--space-md)">
-          <div class="type-body-sm">jose@nofear.dev</div>
+          <div class="type-body-sm">josebermarques@gmail.com</div>
         </div>
       </div>
     </header>
@@ -50,23 +50,20 @@
 
   <div class="u-grid-12" style="padding-top:var(--space-xl)">
     <div class="u-content-span">
-      <div class="type-meta-num" style="margin-bottom:var(--space-md)">02</div>
-      <h1 class="type-headline-lg">Fila de processamento de notas</h1>
+      <div class="type-meta-num" style="margin-bottom:var(--space-md)">06</div>
+      <h1 class="type-headline-lg">Relatório de vendas e lucro em Power BI</h1>
     </div>
     <div class="uv-stack uv-col" style="--col:9 / span 4;padding-top:38px">
-      <div class="type-label-caps-sm">Back-end · 2024</div>
-      <div class="type-label-caps-sm">Sozinho, do banco ao deploy</div>
-      <div class="type-label-caps-sm">Cliente No Fear</div>
+      <div class="type-label-caps-sm">Dados · 2026</div>
+      <div class="type-label-caps-sm">Sozinho — desafio de projeto da DIO</div>
+      <div class="type-label-caps-sm">Estudo</div>
     </div>
   </div>
 
   <div style="padding-top:var(--space-xl)">
-    <figure class="uv-plate">
-        <div class="uv-plate__field" style="--ratio:3 / 2">
-          <div class="uv-plate__title">Fila de processamento de notas</div>
-          <div class="uv-plate__meta">Back-end · 2024</div>
-        </div>
-        <figcaption>Placa tipográfica: a resposta do sistema quando não há foto à altura.</figcaption>
+    <figure class="uv-fig">
+        <div class="uv-mat"><img class="uv-img" style="--ratio:1413 / 783" src="../assets/img/powerbi-dio-vendas.png" width="1413" height="783" alt="Página Sales Report: cartões de total de vendas, unidades, descontos e custo; série de vendas por mês; e quebras por segmento, produto e país."></div>
+        <figcaption>Vendas do período: os totais, a série mensal e as quebras.</figcaption>
       </figure>
   </div>
 
@@ -74,11 +71,13 @@
     <div class="u-content-span">
       <h2 class="type-label-caps">O problema</h2>
       <div style="margin:var(--space-md) 0 var(--space-xl)">
-          <p class="type-body-md u-measure">Este projeto ainda não tem o relato escrito. A ficha está diagramada e espera o texto: o que estava quebrado antes, o que foi construído e onde a coisa ficou difícil.</p>
+          <p class="type-body-md u-measure">Saber de onde vem o lucro — por segmento, por país e por trimestre — sem refazer tabela dinâmica a cada pergunta.</p>
       </div>
       <h2 class="type-label-caps">O que construí</h2>
       <div style="margin-top:var(--space-md)">
-          <p class="type-body-md u-measure">Este projeto ainda não tem o relato escrito. A ficha está diagramada e espera o texto: o que estava quebrado antes, o que foi construído e onde a coisa ficou difícil.</p>
+          <p class="type-body-md u-measure" style="margin-bottom:var(--space-lg)">Relatório em Power BI com três páginas: vendas do período, lucro detalhado e lucro por segmento.</p>
+          <p class="type-body-md u-measure" style="margin-bottom:var(--space-lg)"><strong>Medidas em DAX.</strong> Total de vendas, unidades, desconto e custo saem de medidas, não de coluna calculada na base.</p>
+          <p class="type-body-md u-measure"><strong>Do geral ao detalhe.</strong> A árvore de decomposição abre o lucro por ano e por país; a cascata mostra o trimestre que puxou o ano.</p>
       </div>
     </div>
     <div class="uv-col" style="--col:9 / span 4">
@@ -86,31 +85,40 @@
       <div style="padding-top:var(--space-md)">
         <h2 class="type-label-caps">Stack</h2>
         <div class="uv-chips" style="margin-top:var(--space-md)">
-          <span class="uv-chip">Python</span>
-          <span class="uv-chip">SQS</span>
-          <span class="uv-chip">Postgres</span>
+          <span class="uv-chip">Power BI</span>
+          <span class="uv-chip">DAX</span>
+          <span class="uv-chip">ETL</span>
         </div>
       </div>
       <div style="padding-top:var(--space-xl)">
         <h2 class="type-label-caps">Resultado</h2>
-        <div class="type-headline-md" style="margin-top:var(--space-md)">Pico de emissão sem documento perdido</div>
+        <div class="type-headline-md" style="margin-top:var(--space-md)">Do total de vendas ao lucro por segmento</div>
       </div>
       <div style="padding-top:var(--space-xl)">
         <h2 class="type-label-caps">Código</h2>
         <div style="margin-top:var(--space-md)">
-          <a href="https://github.com/josemarques/fila-notas" target="_blank" rel="noreferrer noopener">github.com/josemarques/fila-notas</a>
+          <a href="https://github.com/josem4rquez/dashboard_powerbi" target="_blank" rel="noreferrer noopener">github.com/josem4rquez/dashboard_powerbi</a>
         </div>
       </div>
     </div>
   </div>
 
-
+  <div class="uv-pair uv-sec">
+    <div><figure class="uv-fig">
+        <div class="uv-mat--sm"><img class="uv-img" style="--ratio:1400 / 769" src="../assets/img/powerbi-dio-lucro.png" width="1400" height="769" alt="Página de lucro detalhado: árvore de decomposição do lucro por ano e por país, treemap por segmento e cascata por trimestre."></div>
+        <figcaption>O lucro aberto por ano, país e trimestre.</figcaption>
+      </figure></div>
+    <div><figure class="uv-fig">
+        <div class="uv-mat--sm"><img class="uv-img" style="--ratio:1396 / 773" src="../assets/img/powerbi-dio-segmento.png" width="1396" height="773" alt="Página de lucro por segmento: gráfico de pizza com a participação de cada segmento e dois mapas, de vendas e de lucro por país."></div>
+        <figcaption>Participação por segmento, e o mesmo dado no mapa.</figcaption>
+      </figure></div>
+  </div>
 
   <nav class="uv-sec" style="padding-bottom:var(--space-xxxl)" aria-label="Outros projetos">
     <hr>
     <div class="uv-pager">
-      <a class="type-label-caps" href="../projetos/gestao-de-clinica-odontologica.html">Anterior · Gestão de clínica odontológica</a>
-      <a class="type-label-caps" href="../projetos/servico-de-importacao-de-catalogo.html">Próximo · Serviço de importação de catálogo</a>
+      <a class="type-label-caps" href="../projetos/dashboard-de-vendas-power-bi.html">Anterior · Dashboard de vendas em Power BI</a>
+      <a class="type-label-caps" href="../projetos/puceats.html">Próximo · PucEats</a>
     </div>
   </nav>
 </main>
@@ -118,7 +126,7 @@
     <div class="u-page">
       <div class="uv-footer__cols">
         <div class="uv-footer__brand">
-          <div class="uv-footer__mark">NoFear</div>
+          <div class="uv-footer__mark">No Fear</div>
           <div class="uv-footer__note">Portfólio de back-end e dados. Site estático, sem rastreamento.</div>
         </div>
         <div class="uv-footer__col">
@@ -128,12 +136,13 @@
         </div>
         <div class="uv-footer__col">
           <h2>Contato</h2>
-          <a href="mailto:jose@nofear.dev">jose@nofear.dev</a>
-          <a href="https://github.com/josemarques" rel="noreferrer noopener">github.com/josemarques</a>
+          <a href="mailto:josebermarques@gmail.com">josebermarques@gmail.com</a>
+          <a href="https://github.com/josem4rquez" rel="noreferrer noopener">github.com/josem4rquez</a>
         </div>
         <div class="uv-footer__col">
           <h2>No Fear</h2>
           <a href="../no-fear.html">A empresa</a>
+          
         </div>
       </div>
     </div>

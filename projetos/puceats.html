@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Painel de indicadores da operação — José Marques</title>
-<meta name="description" content="Sete números que a diretoria olha de manhã, direto do banco, sem planilha no meio.">
+<title>PucEats — José Marques</title>
+<meta name="description" content="Delivery do campus da PUC: catálogo, busca em tempo real e carrinho que sobrevive ao reload.">
 <meta name="color-scheme" content="light">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -38,7 +38,7 @@
         </nav>
         <div class="uv-menu__foot">
           <hr class="uv-rule--light" style="margin-bottom:var(--space-md)">
-          <div class="type-body-sm">jose@nofear.dev</div>
+          <div class="type-body-sm">josebermarques@gmail.com</div>
         </div>
       </div>
     </header>
@@ -50,23 +50,20 @@
 
   <div class="u-grid-12" style="padding-top:var(--space-xl)">
     <div class="u-content-span">
-      <div class="type-meta-num" style="margin-bottom:var(--space-md)">06</div>
-      <h1 class="type-headline-lg">Painel de indicadores da operação</h1>
+      <div class="type-meta-num" style="margin-bottom:var(--space-md)">07</div>
+      <h1 class="type-headline-lg">PucEats</h1>
     </div>
     <div class="uv-stack uv-col" style="--col:9 / span 4;padding-top:38px">
-      <div class="type-label-caps-sm">Dados · 2024</div>
-      <div class="type-label-caps-sm">Sozinho</div>
-      <div class="type-label-caps-sm">Pessoal</div>
+      <div class="type-label-caps-sm">Front-end · 2026</div>
+      <div class="type-label-caps-sm">Em equipe, cinco pessoas</div>
+      <div class="type-label-caps-sm">Faculdade</div>
     </div>
   </div>
 
   <div style="padding-top:var(--space-xl)">
-    <figure class="uv-plate">
-        <div class="uv-plate__field" style="--ratio:3 / 2">
-          <div class="uv-plate__title">Painel de indicadores da operação</div>
-          <div class="uv-plate__meta">Dados · 2024</div>
-        </div>
-        <figcaption>Placa tipográfica: a resposta do sistema quando não há foto à altura.</figcaption>
+    <figure class="uv-fig">
+        <div class="uv-mat"><img class="uv-img" style="--ratio:1438 / 769" src="../assets/img/puceats-home.png" width="1438" height="769" alt="Home do PUC Eats: barra de busca com filtro, chamada &quot;Coma bem, estude melhor&quot;, botões para restaurantes e promoções, e os números de pratos, avaliação e tempo de entrega."></div>
+        <figcaption>A home: busca no topo, promoções e o tempo até o campus.</figcaption>
       </figure>
   </div>
 
@@ -74,11 +71,15 @@
     <div class="u-content-span">
       <h2 class="type-label-caps">O problema</h2>
       <div style="margin:var(--space-md) 0 var(--space-xl)">
-          <p class="type-body-md u-measure">Este projeto ainda não tem o relato escrito. A ficha está diagramada e espera o texto: o que estava quebrado antes, o que foi construído e onde a coisa ficou difícil.</p>
+          <p class="type-body-md u-measure">Um delivery inteiro rodando no navegador: buscar, montar o carrinho, fechar o pedido. Sem framework, por escolha — o exercício era DOM, evento e armazenamento local na mão.</p>
       </div>
       <h2 class="type-label-caps">O que construí</h2>
       <div style="margin-top:var(--space-md)">
-          <p class="type-body-md u-measure">Este projeto ainda não tem o relato escrito. A ficha está diagramada e espera o texto: o que estava quebrado antes, o que foi construído e onde a coisa ficou difícil.</p>
+          <p class="type-body-md u-measure" style="margin-bottom:var(--space-lg)">Quatro páginas: a home com catálogo e recomendações, o cardápio em modal, a listagem completa com busca e a autenticação.</p>
+          <p class="type-body-md u-measure" style="margin-bottom:var(--space-lg)"><strong>Carrinho no localStorage.</strong> O pedido sobrevive ao reload da página: a Web Storage API fazendo o trabalho que seria de um back-end.</p>
+          <p class="type-body-md u-measure" style="margin-bottom:var(--space-lg)"><strong>Busca em tempo real.</strong> A lista filtra conforme a pessoa digita, sem ida ao servidor.</p>
+          <p class="type-body-md u-measure" style="margin-bottom:var(--space-lg)"><strong>IA no processo.</strong> Parte do código e das telas saiu com apoio de IA.</p>
+          <p class="type-body-md u-measure">Feito com Rauhan Kniess, Eduardo Lopes, Gabriel Men e Ruan Eduardo Yamaguchi.</p>
       </div>
     </div>
     <div class="uv-col" style="--col:9 / span 4">
@@ -86,31 +87,41 @@
       <div style="padding-top:var(--space-md)">
         <h2 class="type-label-caps">Stack</h2>
         <div class="uv-chips" style="margin-top:var(--space-md)">
-          <span class="uv-chip">SQL</span>
-          <span class="uv-chip">Metabase</span>
-          <span class="uv-chip">Postgres</span>
+          <span class="uv-chip">HTML</span>
+          <span class="uv-chip">CSS</span>
+          <span class="uv-chip">JavaScript</span>
+          <span class="uv-chip">localStorage</span>
         </div>
       </div>
       <div style="padding-top:var(--space-xl)">
         <h2 class="type-label-caps">Resultado</h2>
-        <div class="type-headline-md" style="margin-top:var(--space-md)">Sete números, sem planilha no meio</div>
+        <div class="type-headline-md" style="margin-top:var(--space-md)">Pedido montado e mantido, sem back-end</div>
       </div>
       <div style="padding-top:var(--space-xl)">
         <h2 class="type-label-caps">Código</h2>
         <div style="margin-top:var(--space-md)">
-          <a href="https://github.com/josemarques/painel-operacao" target="_blank" rel="noreferrer noopener">github.com/josemarques/painel-operacao</a>
+          <a href="https://github.com/josem4rquez/PucEats" target="_blank" rel="noreferrer noopener">github.com/josem4rquez/PucEats</a>
         </div>
       </div>
     </div>
   </div>
 
-
+  <div class="uv-pair uv-sec">
+    <div><figure class="uv-fig">
+        <div class="uv-mat--sm"><img class="uv-img" style="--ratio:1394 / 929" src="../assets/img/puceats-cardapio.png" width="1394" height="929" alt="Página de um restaurante: capa com nota, distância e tempo, abas de categoria, busca no cardápio e cards de item com preço e botão de adicionar."></div>
+        <figcaption>O cardápio: abas por categoria, busca própria, item a item.</figcaption>
+      </figure></div>
+    <div><figure class="uv-fig">
+        <div class="uv-mat--sm"><img class="uv-img" style="--ratio:1268 / 845" src="../assets/img/puceats-auth.png" width="1268" height="845" alt="Tela de acesso com abas Entrar e Criar conta, campos de e-mail universitário e senha, lembrar de mim e recuperação."></div>
+        <figcaption>Entrar ou criar conta, com e-mail da universidade.</figcaption>
+      </figure></div>
+  </div>
 
   <nav class="uv-sec" style="padding-bottom:var(--space-xxxl)" aria-label="Outros projetos">
     <hr>
     <div class="uv-pager">
-      <a class="type-label-caps" href="../projetos/modelo-de-evasao-de-clientes.html">Anterior · Modelo de evasão de clientes</a>
-      <a class="type-label-caps" href="../projetos/consolidacao-de-bases-de-rh.html">Próximo · Consolidação de bases de RH</a>
+      <a class="type-label-caps" href="../projetos/relatorio-de-vendas-e-lucro-power-bi.html">Anterior · Relatório de vendas e lucro em Power BI</a>
+      <a class="type-label-caps" href="../projetos/esse-site.html">Próximo · Esse site :)</a>
     </div>
   </nav>
 </main>
@@ -118,7 +129,7 @@
     <div class="u-page">
       <div class="uv-footer__cols">
         <div class="uv-footer__brand">
-          <div class="uv-footer__mark">NoFear</div>
+          <div class="uv-footer__mark">No Fear</div>
           <div class="uv-footer__note">Portfólio de back-end e dados. Site estático, sem rastreamento.</div>
         </div>
         <div class="uv-footer__col">
@@ -128,12 +139,13 @@
         </div>
         <div class="uv-footer__col">
           <h2>Contato</h2>
-          <a href="mailto:jose@nofear.dev">jose@nofear.dev</a>
-          <a href="https://github.com/josemarques" rel="noreferrer noopener">github.com/josemarques</a>
+          <a href="mailto:josebermarques@gmail.com">josebermarques@gmail.com</a>
+          <a href="https://github.com/josem4rquez" rel="noreferrer noopener">github.com/josem4rquez</a>
         </div>
         <div class="uv-footer__col">
           <h2>No Fear</h2>
           <a href="../no-fear.html">A empresa</a>
+          
         </div>
       </div>
     </div>

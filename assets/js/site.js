@@ -155,9 +155,80 @@
     });
   }
 
+  /* --- Tocador de áudio ---------------------------------------------------
+     O <audio controls> nativo já toca sem JavaScript, e é ele que fica no HTML.
+     Quando o script roda, ele é escondido e trocado por tipografia: um botão de
+     texto e um relógio em algarismos tabulares. O player do navegador era a
+     única peça da página com canto arredondado e cor de sistema operacional. */
+  function instalarTocadores() {
+    document.querySelectorAll('[data-player]').forEach(instalarTocador);
+  }
+
+  function instalarTocador(caixa) {
+    var audio = caixa.querySelector('audio');
+    if (!audio) return;
+
+    // Quando a placa ao lado é o botão, é ela que toca: o player nativo some e
+    // nada de texto novo entra na página.
+    var placa = caixa.parentElement && caixa.parentElement.querySelector('[data-player-botao]');
+    if (placa) {
+      audio.removeAttribute('controls');
+      caixa.classList.add('uv-player--pronto');
+      placa.addEventListener('click', function () {
+        if (audio.paused) audio.play(); else audio.pause();
+      });
+      audio.addEventListener('play', function () {
+        placa.setAttribute('data-tocando', '');
+        placa.setAttribute('aria-label', 'Pausar ' + placa.querySelector('.uv-plate__title').textContent);
+      });
+      function parou() {
+        placa.removeAttribute('data-tocando');
+        placa.setAttribute('aria-label', 'Ouvir ' + placa.querySelector('.uv-plate__title').textContent);
+      }
+      audio.addEventListener('pause', parou);
+      audio.addEventListener('ended', parou);
+      return;
+    }
+
+    function relogio(s) {
+      if (!isFinite(s) || s < 0) s = 0;
+      var m = Math.floor(s / 60);
+      var r = Math.floor(s % 60);
+      return m + ':' + (r < 10 ? '0' : '') + r;
+    }
+
+    var botao = document.createElement('button');
+    botao.type = 'button';
+    botao.className = 'uv-player__botao';
+    botao.textContent = 'Ouvir';
+
+    var tempo = document.createElement('span');
+    tempo.className = 'uv-player__tempo';
+    tempo.textContent = relogio(0);
+
+    audio.removeAttribute('controls');
+    caixa.classList.add('uv-player--pronto');
+    caixa.appendChild(botao);
+    caixa.appendChild(tempo);
+
+    function marcar() {
+      tempo.textContent = relogio(audio.currentTime) + ' / ' + relogio(audio.duration);
+    }
+
+    botao.addEventListener('click', function () {
+      if (audio.paused) audio.play(); else audio.pause();
+    });
+    audio.addEventListener('play', function () { botao.textContent = 'Pausar'; });
+    audio.addEventListener('pause', function () { botao.textContent = 'Ouvir'; });
+    audio.addEventListener('ended', function () { botao.textContent = 'Ouvir'; });
+    audio.addEventListener('loadedmetadata', marcar);
+    audio.addEventListener('timeupdate', marcar);
+  }
+
   function iniciar() {
     instalarMenu();
     instalarFormulario();
+    instalarTocadores();
     // Esconder tem de acontecer ANTES da primeira pintura, e sem transição,
     // senão o bloco pisca. Em documento oculto não se esconde nada: a página
     // fica visível como está, que era o motivo do rAF que havia aqui.

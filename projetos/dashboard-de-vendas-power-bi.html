@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Consolidação de bases de RH — José Marques</title>
-<meta name="description" content="Une três cadastros com regras de duplicidade escritas junto com o time de pessoas.">
+<title>Dashboard de vendas em Power BI — José Marques</title>
+<meta name="description" content="Relatório de vendas em Power BI: total, mapa e ranking por país, com o período filtrável.">
 <meta name="color-scheme" content="light">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -38,7 +38,7 @@
         </nav>
         <div class="uv-menu__foot">
           <hr class="uv-rule--light" style="margin-bottom:var(--space-md)">
-          <div class="type-body-sm">jose@nofear.dev</div>
+          <div class="type-body-sm">josebermarques@gmail.com</div>
         </div>
       </div>
     </header>
@@ -50,23 +50,20 @@
 
   <div class="u-grid-12" style="padding-top:var(--space-xl)">
     <div class="u-content-span">
-      <div class="type-meta-num" style="margin-bottom:var(--space-md)">07</div>
-      <h1 class="type-headline-lg">Consolidação de bases de RH</h1>
+      <div class="type-meta-num" style="margin-bottom:var(--space-md)">05</div>
+      <h1 class="type-headline-lg">Dashboard de vendas em Power BI</h1>
     </div>
     <div class="uv-stack uv-col" style="--col:9 / span 4;padding-top:38px">
-      <div class="type-label-caps-sm">Dados · 2023</div>
-      <div class="type-label-caps-sm">Sozinho, do banco ao deploy</div>
-      <div class="type-label-caps-sm">Cliente No Fear</div>
+      <div class="type-label-caps-sm">Dados · 2026</div>
+      <div class="type-label-caps-sm">Sozinho, do ETL ao relatório</div>
+      <div class="type-label-caps-sm">Estudo</div>
     </div>
   </div>
 
   <div style="padding-top:var(--space-xl)">
-    <figure class="uv-plate">
-        <div class="uv-plate__field" style="--ratio:3 / 2">
-          <div class="uv-plate__title">Consolidação de bases de RH</div>
-          <div class="uv-plate__meta">Dados · 2023</div>
-        </div>
-        <figcaption>Placa tipográfica: a resposta do sistema quando não há foto à altura.</figcaption>
+    <figure class="uv-fig">
+        <div class="uv-mat"><img class="uv-img" style="--ratio:1477 / 825" src="../assets/img/powerbi-sales-report.png" width="1477" height="825" alt="Página Sales Report do relatório: soma de UnitPrice e de Quantity, filtro de data, mapa por país e ranking de países por valor."></div>
+        <figcaption>Vendas: os totais, o mapa e o ranking por país.</figcaption>
       </figure>
   </div>
 
@@ -74,11 +71,12 @@
     <div class="u-content-span">
       <h2 class="type-label-caps">O problema</h2>
       <div style="margin:var(--space-md) 0 var(--space-xl)">
-          <p class="type-body-md u-measure">Este projeto ainda não tem o relato escrito. A ficha está diagramada e espera o texto: o que estava quebrado antes, o que foi construído e onde a coisa ficou difícil.</p>
+          <p class="type-body-md u-measure">Base de vendas crua não responde por país nem por período: cada pergunta vira uma tabela dinâmica nova.</p>
       </div>
       <h2 class="type-label-caps">O que construí</h2>
       <div style="margin-top:var(--space-md)">
-          <p class="type-body-md u-measure">Este projeto ainda não tem o relato escrito. A ficha está diagramada e espera o texto: o que estava quebrado antes, o que foi construído e onde a coisa ficou difícil.</p>
+          <p class="type-body-md u-measure" style="margin-bottom:var(--space-lg)">Relatório em Power BI com duas páginas — vendas e quantidade — sobre a base tratada no Power Query.</p>
+          <p class="type-body-md u-measure"><strong>ETL antes do gráfico.</strong> Limpeza, transformação e padronização no Power Query, não no visual.</p>
       </div>
     </div>
     <div class="uv-col" style="--col:9 / span 4">
@@ -86,30 +84,36 @@
       <div style="padding-top:var(--space-md)">
         <h2 class="type-label-caps">Stack</h2>
         <div class="uv-chips" style="margin-top:var(--space-md)">
-          <span class="uv-chip">Python</span>
-          <span class="uv-chip">Postgres</span>
+          <span class="uv-chip">Power BI</span>
+          <span class="uv-chip">Power Query</span>
+          <span class="uv-chip">Excel/CSV</span>
         </div>
       </div>
       <div style="padding-top:var(--space-xl)">
         <h2 class="type-label-caps">Resultado</h2>
-        <div class="type-headline-md" style="margin-top:var(--space-md)">Três cadastros, uma pessoa por linha</div>
+        <div class="type-headline-md" style="margin-top:var(--space-md)">Vendas por país e por período, numa página</div>
       </div>
       <div style="padding-top:var(--space-xl)">
         <h2 class="type-label-caps">Código</h2>
         <div style="margin-top:var(--space-md)">
-          <a href="https://github.com/josemarques/rh-consolidado" target="_blank" rel="noreferrer noopener">github.com/josemarques/rh-consolidado</a>
+          <a href="https://github.com/josem4rquez/dashboard_sales_powerbi" target="_blank" rel="noreferrer noopener">github.com/josem4rquez/dashboard_sales_powerbi</a>
         </div>
       </div>
     </div>
   </div>
 
-
+  <div class="uv-sec">
+    <figure class="uv-fig">
+        <div class="uv-mat--sm"><img class="uv-img" style="--ratio:1476 / 826" src="../assets/img/powerbi-quantity-report.png" width="1476" height="826" alt="Página Quantity Report: tabela de quantidade e valor por país, indicador contra a meta, gráfico por país e rosca de participação."></div>
+        <figcaption>Quantidade: a mesma base pela outra pergunta, contra a meta.</figcaption>
+      </figure>
+  </div>
 
   <nav class="uv-sec" style="padding-bottom:var(--space-xxxl)" aria-label="Outros projetos">
     <hr>
     <div class="uv-pager">
-      <a class="type-label-caps" href="../projetos/painel-de-indicadores-da-operacao.html">Anterior · Painel de indicadores da operação</a>
-      <a class="type-label-caps" href="../projetos/gestao-de-clinica-odontologica.html">Próximo · Gestão de clínica odontológica</a>
+      <a class="type-label-caps" href="../projetos/dashboard-de-compras.html">Anterior · Dashboard de compras</a>
+      <a class="type-label-caps" href="../projetos/relatorio-de-vendas-e-lucro-power-bi.html">Próximo · Relatório de vendas e lucro em Power BI</a>
     </div>
   </nav>
 </main>
@@ -117,7 +121,7 @@
     <div class="u-page">
       <div class="uv-footer__cols">
         <div class="uv-footer__brand">
-          <div class="uv-footer__mark">NoFear</div>
+          <div class="uv-footer__mark">No Fear</div>
           <div class="uv-footer__note">Portfólio de back-end e dados. Site estático, sem rastreamento.</div>
         </div>
         <div class="uv-footer__col">
@@ -127,12 +131,13 @@
         </div>
         <div class="uv-footer__col">
           <h2>Contato</h2>
-          <a href="mailto:jose@nofear.dev">jose@nofear.dev</a>
-          <a href="https://github.com/josemarques" rel="noreferrer noopener">github.com/josemarques</a>
+          <a href="mailto:josebermarques@gmail.com">josebermarques@gmail.com</a>
+          <a href="https://github.com/josem4rquez" rel="noreferrer noopener">github.com/josem4rquez</a>
         </div>
         <div class="uv-footer__col">
           <h2>No Fear</h2>
           <a href="../no-fear.html">A empresa</a>
+          
         </div>
       </div>
     </div>
