@@ -475,7 +475,7 @@ function paginaNoFear() {
     <div class="uv-col" style="--col:1 / span 8">
       <div class="type-label-caps">A empresa</div>
       <h1 class="type-headline-lg" style="margin:var(--space-md) 0 var(--space-lg);max-width:22ch">Sistemas de gestão integrados a business intelligence</h1>
-      <p class="type-body-lg u-measure">A No Fear faz sistema de gestão para empresa que já passou do ponto da planilha. Cada entrega sai com o painel junto, então o número que a operação digita é o mesmo que o dono olha no fim do mês. Escopo fechado antes de começar, e o código fica no repositório do cliente.</p>
+      <p class="type-body-lg u-measure">A No Fear faz sistema de gestão para empresa que já passou do ponto da planilha. Cada entrega sai com o painel junto: o número que a operação digita é o mesmo que o dono olha no fim do mês.</p>
     </div>
     <div class="uv-col" style="--col:10 / span 3;text-align:right;padding-top:6px">
       <div class="type-meta-num">Fundada em 2026</div>
