@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Gestão de clínica odontológica — José Marques</title>
-<meta name="description" content="Agenda, prontuário e financeiro de uma clínica inteira, com o isolamento no banco.">
+<meta name="description" content="Agenda, prontuário e financeiro de uma clínica inteira, com o isolamento entre clínicas feito no banco.">
 <meta name="color-scheme" content="light">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,7 +17,7 @@
 <div class="u-page">
     <header class="uv-header">
       <div class="uv-header__bar">
-        <a class="uv-brand" href="../index.html">NoFear</a>
+        <a class="uv-brand" href="../index.html">No Fear</a>
         <nav class="uv-nav" aria-label="Principal">
         <a href="../index.html">Quem sou eu</a>
         <a href="../projetos.html" aria-current="page">Projetos</a>
@@ -63,7 +63,7 @@
   <div style="padding-top:var(--space-xl)">
     <figure class="uv-fig">
         <div class="uv-mat"><img class="uv-img" style="--ratio:1911 / 961" src="../assets/img/clinica-inicio.png" width="1911" height="961" alt="Tela de início do sistema: saudação do dia, próximos atendimentos, acessos rápidos e mural da equipe."></div>
-        <figcaption>Início: os próximos atendimentos, o mural da equipe e o atalho para onde se voltou por último.</figcaption>
+        <figcaption>A tela de início, com os próximos atendimentos e o mural da equipe.</figcaption>
       </figure>
   </div>
 
@@ -71,14 +71,14 @@
     <div class="u-content-span">
       <h2 class="type-label-caps">O problema</h2>
       <div style="margin:var(--space-md) 0 var(--space-xl)">
-          <p class="type-body-md u-measure">Agenda, prontuário e financeiro no mesmo lugar — com registro clínico que não se edita e dado que não passa de uma clínica para a outra.</p>
+          <p class="type-body-md u-measure">A clínica queria agenda, prontuário e financeiro no mesmo lugar. Com duas condições que sistema genérico não cumpre: registro clínico não se edita, e dado de uma clínica não pode aparecer na outra.</p>
       </div>
       <h2 class="type-label-caps">O que construí</h2>
       <div style="margin-top:var(--space-md)">
-          <p class="type-body-md u-measure" style="margin-bottom:var(--space-lg)">Software de gestão em produção: agenda por cadeira, prontuário, odontograma, orçamento, financeiro e equipe.</p>
-          <p class="type-body-md u-measure" style="margin-bottom:var(--space-lg)"><strong>Multi-tenancy no banco.</strong> Cada clínica é um tenant, isolada por Row Level Security do PostgreSQL — não por WHERE.</p>
-          <p class="type-body-md u-measure" style="margin-bottom:var(--space-lg)"><strong>Prontuário append-only.</strong> Um gatilho impede editar ou apagar; corrigir é escrever a versão seguinte.</p>
-          <p class="type-body-md u-measure"><strong>Permissão por papel.</strong> Cinco papéis. A interface esconde; quem barra é a API, com 403.</p>
+          <p class="type-body-md u-measure" style="margin-bottom:var(--space-lg)">O sistema está rodando na clínica. Cobre agenda por cadeira, prontuário, odontograma, orçamento, financeiro e gestão de equipe.</p>
+          <p class="type-body-md u-measure" style="margin-bottom:var(--space-lg)">Cada clínica é um tenant, e quem isola é o Row Level Security do PostgreSQL. Se alguém esquecer um WHERE numa consulta, o banco continua não entregando dado da clínica vizinha.</p>
+          <p class="type-body-md u-measure" style="margin-bottom:var(--space-lg)">Prontuário não se edita nem se apaga, e é um gatilho no banco que garante isso. Corrigir é escrever a versão seguinte, com a anterior continuando lá.</p>
+          <p class="type-body-md u-measure">São cinco papéis de acesso. A interface esconde o que a pessoa não pode abrir, mas quem barra de verdade é a API, com 403.</p>
       </div>
     </div>
     <div class="uv-col" style="--col:9 / span 4">
@@ -114,11 +114,11 @@
   <div class="uv-pair uv-sec">
     <div><figure class="uv-fig">
         <div class="uv-mat--sm"><img class="uv-img" style="--ratio:1 / 1" src="../assets/img/clinica-odontograma.png" width="1296" height="1296" alt="Odontograma do paciente: arcada superior e inferior numeradas, com a legenda de estados clínicos."></div>
-        <figcaption>Odontograma: o estado de cada dente.</figcaption>
+        <figcaption>O odontograma, dente por dente.</figcaption>
       </figure></div>
     <div><figure class="uv-fig">
         <div class="uv-mat--sm"><img class="uv-img" style="--ratio:1 / 1" src="../assets/img/clinica-dashboard.png" width="1305" height="1305" alt="Dashboard do sistema: faturamento, gastos, saldo, passivo clínico e itens pendentes do período."></div>
-        <figcaption>Dashboard: o que entrou e o que falta executar.</figcaption>
+        <figcaption>O painel mostra o que entrou e o que ainda falta executar.</figcaption>
       </figure></div>
   </div>
 

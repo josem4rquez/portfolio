@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Dashboard de vendas em Power BI — José Marques</title>
-<meta name="description" content="Relatório de vendas em Power BI: total, mapa e ranking por país, com o período filtrável.">
+<meta name="description" content="Relatório de vendas em Power BI, com mapa e ranking por país e filtro de período.">
 <meta name="color-scheme" content="light">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,7 +17,7 @@
 <div class="u-page">
     <header class="uv-header">
       <div class="uv-header__bar">
-        <a class="uv-brand" href="../index.html">NoFear</a>
+        <a class="uv-brand" href="../index.html">No Fear</a>
         <nav class="uv-nav" aria-label="Principal">
         <a href="../index.html">Quem sou eu</a>
         <a href="../projetos.html" aria-current="page">Projetos</a>
@@ -55,7 +55,7 @@
     </div>
     <div class="uv-stack uv-col" style="--col:9 / span 4;padding-top:38px">
       <div class="type-label-caps-sm">Dados · 2026</div>
-      <div class="type-label-caps-sm">Sozinho, do ETL ao relatório</div>
+      <div class="type-label-caps-sm">Sozinho</div>
       <div class="type-label-caps-sm">Estudo</div>
     </div>
   </div>
@@ -63,7 +63,7 @@
   <div style="padding-top:var(--space-xl)">
     <figure class="uv-fig">
         <div class="uv-mat"><img class="uv-img" style="--ratio:1477 / 825" src="../assets/img/powerbi-sales-report.png" width="1477" height="825" alt="Página Sales Report do relatório: soma de UnitPrice e de Quantity, filtro de data, mapa por país e ranking de países por valor."></div>
-        <figcaption>Vendas: os totais, o mapa e o ranking por país.</figcaption>
+        <figcaption>A página de vendas, com o mapa e o ranking por país.</figcaption>
       </figure>
   </div>
 
@@ -71,12 +71,12 @@
     <div class="u-content-span">
       <h2 class="type-label-caps">O problema</h2>
       <div style="margin:var(--space-md) 0 var(--space-xl)">
-          <p class="type-body-md u-measure">Base de vendas crua não responde por país nem por período: cada pergunta vira uma tabela dinâmica nova.</p>
+          <p class="type-body-md u-measure">Base crua não responde por país nem por período. Cada pergunta virava uma tabela dinâmica nova.</p>
       </div>
       <h2 class="type-label-caps">O que construí</h2>
       <div style="margin-top:var(--space-md)">
-          <p class="type-body-md u-measure" style="margin-bottom:var(--space-lg)">Relatório em Power BI com duas páginas — vendas e quantidade — sobre a base tratada no Power Query.</p>
-          <p class="type-body-md u-measure"><strong>ETL antes do gráfico.</strong> Limpeza, transformação e padronização no Power Query, não no visual.</p>
+          <p class="type-body-md u-measure" style="margin-bottom:var(--space-lg)">São duas páginas, vendas e quantidade, sobre a base já tratada no Power Query.</p>
+          <p class="type-body-md u-measure">A limpeza e a padronização acontecem no Power Query, antes do gráfico. Visual não é lugar de arrumar dado.</p>
       </div>
     </div>
     <div class="uv-col" style="--col:9 / span 4">
@@ -91,7 +91,7 @@
       </div>
       <div style="padding-top:var(--space-xl)">
         <h2 class="type-label-caps">Resultado</h2>
-        <div class="type-headline-md" style="margin-top:var(--space-md)">Vendas por país e por período, numa página</div>
+        <div class="type-headline-md" style="margin-top:var(--space-md)">Vendas por país, com o período no filtro</div>
       </div>
       <div style="padding-top:var(--space-xl)">
         <h2 class="type-label-caps">Código</h2>
@@ -105,7 +105,7 @@
   <div class="uv-sec">
     <figure class="uv-fig">
         <div class="uv-mat--sm"><img class="uv-img" style="--ratio:1476 / 826" src="../assets/img/powerbi-quantity-report.png" width="1476" height="826" alt="Página Quantity Report: tabela de quantidade e valor por país, indicador contra a meta, gráfico por país e rosca de participação."></div>
-        <figcaption>Quantidade: a mesma base pela outra pergunta, contra a meta.</figcaption>
+        <figcaption>A página de quantidade, com a mesma base olhada pela outra pergunta.</figcaption>
       </figure>
   </div>
 

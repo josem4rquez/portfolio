@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>API de cadastro de clientes — José Marques</title>
-<meta name="description" content="CRUD de clientes em Spring Boot, com e-mail único, documentação Swagger e cliente Feign.">
+<meta name="description" content="CRUD de clientes em Spring Boot, com e-mail único e documentação que sai do próprio código.">
 <meta name="color-scheme" content="light">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,7 +17,7 @@
 <div class="u-page">
     <header class="uv-header">
       <div class="uv-header__bar">
-        <a class="uv-brand" href="../index.html">NoFear</a>
+        <a class="uv-brand" href="../index.html">No Fear</a>
         <nav class="uv-nav" aria-label="Principal">
         <a href="../index.html">Quem sou eu</a>
         <a href="../projetos.html" aria-current="page">Projetos</a>
@@ -55,7 +55,7 @@
     </div>
     <div class="uv-stack uv-col" style="--col:9 / span 4;padding-top:38px">
       <div class="type-label-caps-sm">Back-end · 2025</div>
-      <div class="type-label-caps-sm">Sozinho, projeto de bootcamp</div>
+      <div class="type-label-caps-sm">Sozinho, num bootcamp</div>
       <div class="type-label-caps-sm">Estudo</div>
     </div>
   </div>
@@ -63,7 +63,7 @@
   <div style="padding-top:var(--space-xl)">
     <figure class="uv-fig">
         <div class="uv-mat"><img class="uv-img" style="--ratio:1445 / 963" src="../assets/img/api-clientes-swagger.png" width="1445" height="963" alt="Swagger UI da API: cliente-controller com GET, POST, PUT e DELETE em /api/clientes, home-controller e o schema Cliente."></div>
-        <figcaption>A documentação sai do código: Swagger UI gerado pelas assinaturas.</figcaption>
+        <figcaption>O Swagger UI, gerado pelas assinaturas do próprio código.</figcaption>
       </figure>
   </div>
 
@@ -71,14 +71,14 @@
     <div class="u-content-span">
       <h2 class="type-label-caps">O problema</h2>
       <div style="margin:var(--space-md) 0 var(--space-xl)">
-          <p class="type-body-md u-measure">Aprender Spring Boot montando a espinha inteira de uma API REST: controller, serviço, repositório, documentação — e não só o caminho feliz do CRUD.</p>
+          <p class="type-body-md u-measure">Queria aprender Spring Boot montando a API inteira, e não só o caminho feliz do CRUD.</p>
       </div>
       <h2 class="type-label-caps">O que construí</h2>
       <div style="margin-top:var(--space-md)">
-          <p class="type-body-md u-measure" style="margin-bottom:var(--space-lg)">Uma API de cadastro de clientes em camadas: controller, service, repository e DTO, sobre Spring Data JPA com banco H2 em memória.</p>
-          <p class="type-body-md u-measure" style="margin-bottom:var(--space-lg)"><strong>Regra no serviço, não no controller.</strong> O e-mail é único: a criação é bloqueada se ele já existir, e quem decide isso é a camada de serviço.</p>
-          <p class="type-body-md u-measure" style="margin-bottom:var(--space-lg)"><strong>Documentação que vem do código.</strong> springdoc-openapi publica o Swagger UI a partir das próprias assinaturas, então a doc não envelhece separada da API.</p>
-          <p class="type-body-md u-measure"><strong>Cliente HTTP declarativo.</strong> OpenFeign para consumir serviço externo por interface, sem escrever chamada na mão.</p>
+          <p class="type-body-md u-measure" style="margin-bottom:var(--space-lg)">A API é em camadas, controller, service, repository e DTO, sobre Spring Data JPA com banco H2 em memória.</p>
+          <p class="type-body-md u-measure" style="margin-bottom:var(--space-lg)">A regra do e-mail único mora no serviço, não no controller. Se o e-mail já existe, a criação para ali.</p>
+          <p class="type-body-md u-measure" style="margin-bottom:var(--space-lg)">A documentação sai das próprias assinaturas, pelo springdoc-openapi. Assim ela não envelhece separada da API.</p>
+          <p class="type-body-md u-measure">Para consumir serviço externo usei OpenFeign: declara a interface e pronto, sem escrever chamada na mão.</p>
       </div>
     </div>
     <div class="uv-col" style="--col:9 / span 4">
@@ -111,7 +111,7 @@
   <div class="uv-pair uv-sec">
     <div><figure class="uv-fig">
         <div class="uv-mat--sm"><img class="uv-img" style="--ratio:1 / 1" src="../assets/img/api-clientes-post.png" width="1135" height="1135" alt="Swagger UI executando POST /api/clientes com nome e e-mail no corpo; a resposta é 201 com o cliente criado, já com id."></div>
-        <figcaption>POST /api/clientes: 201 e o cliente criado de volta, com id.</figcaption>
+        <figcaption>Um POST em /api/clientes devolvendo 201 e o cliente criado, já com id.</figcaption>
       </figure></div>
     <div><figure class="uv-fig">
         <div class="uv-mat--sm"><img class="uv-img" style="--ratio:1 / 1" src="../assets/img/api-clientes-estrutura.png" width="760" height="760" alt="Árvore de pastas do projeto: src/main/java com controller, dto, entity, openfeign, repository e service, mais resources, test e pom.xml."></div>

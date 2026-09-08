@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Data warehouse de e-commerce — José Marques</title>
-<meta name="description" content="Venda transacional vira esquema estrela: staging, oito dimensões e um fato consultável.">
+<meta name="description" content="Venda transacional virando esquema estrela, com staging, oito dimensões e um fato que dá para consultar.">
 <meta name="color-scheme" content="light">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,7 +17,7 @@
 <div class="u-page">
     <header class="uv-header">
       <div class="uv-header__bar">
-        <a class="uv-brand" href="../index.html">NoFear</a>
+        <a class="uv-brand" href="../index.html">No Fear</a>
         <nav class="uv-nav" aria-label="Principal">
         <a href="../index.html">Quem sou eu</a>
         <a href="../projetos.html" aria-current="page">Projetos</a>
@@ -71,13 +71,13 @@
     <div class="u-content-span">
       <h2 class="type-label-caps">O problema</h2>
       <div style="margin:var(--space-md) 0 var(--space-xl)">
-          <p class="type-body-md u-measure">Dado de venda nasce transacional: para saber faturamento, venda por produto, por cliente, por forma de pagamento ou por período, cada pergunta vira um JOIN escrito na hora.</p>
+          <p class="type-body-md u-measure">Dado de venda nasce transacional. Qualquer pergunta de negócio vira um JOIN escrito na hora, e ninguém escreve o mesmo JOIN duas vezes igual.</p>
       </div>
       <h2 class="type-label-caps">O que construí</h2>
       <div style="margin-top:var(--space-md)">
-          <p class="type-body-md u-measure" style="margin-bottom:var(--space-lg)">Um data warehouse em esquema estrela: cinco tabelas de staging, oito dimensões e o fato de vendas.</p>
-          <p class="type-body-md u-measure" style="margin-bottom:var(--space-lg)"><strong>ETL em camadas.</strong> Gerador SQL, staging, transformação, dimensões, fato — nessa ordem. Cada etapa é um script versionado, e o dado bruto fica intacto na camada de entrada.</p>
-          <p class="type-body-md u-measure"><strong>Chave substituta em toda dimensão.</strong> A chave do sistema de origem não vira chave do modelo, então mudança de cadastro não reescreve histórico de venda.</p>
+          <p class="type-body-md u-measure" style="margin-bottom:var(--space-lg)">Montei um data warehouse em esquema estrela: cinco tabelas de staging, oito dimensões e o fato de vendas.</p>
+          <p class="type-body-md u-measure" style="margin-bottom:var(--space-lg)">O ETL roda sempre na mesma ordem: gerador, staging, transformação, dimensões, fato. Cada etapa é um script versionado, e o dado bruto fica intacto na entrada.</p>
+          <p class="type-body-md u-measure">Toda dimensão tem chave substituta. A chave do sistema de origem não vira chave do modelo, então mudar um cadastro hoje não reescreve o histórico de venda de dois anos atrás.</p>
       </div>
     </div>
     <div class="uv-col" style="--col:9 / span 4">
@@ -105,11 +105,11 @@
   <div class="uv-pair uv-sec">
     <div><figure class="uv-fig">
         <div class="uv-mat--sm"><img class="uv-img" style="--ratio:1 / 1" src="../assets/img/ecommerce-dw-modelo.png" width="972" height="972" alt="Modelo físico no MySQL Workbench: a tabela fato_vendas com as oito chaves estrangeiras e as dimensões em volta, com tipo de cada coluna."></div>
-        <figcaption>O modelo físico: o fato de vendas e as chaves que chegam nele.</figcaption>
+        <figcaption>O modelo físico, com as chaves que chegam no fato.</figcaption>
       </figure></div>
     <div><figure class="uv-fig">
         <div class="uv-mat--sm"><img class="uv-img" style="--ratio:1 / 1" src="../assets/img/ecommerce-dw-notion.png" width="908" height="908" alt="Página do projeto no Notion, com links para visão geral, backlog, modelo de dados, dicionário de dados, ETL/cargas e integração com Power BI."></div>
-        <figcaption>A documentação: visão geral, backlog, modelo, dicionário e cargas.</figcaption>
+        <figcaption>A documentação do projeto, com backlog, dicionário e as cargas.</figcaption>
       </figure></div>
   </div>
 

@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Relatório de vendas e lucro em Power BI — José Marques</title>
-<meta name="description" content="Vendas, desconto e custo numa página; o lucro aberto por ano, país, segmento e trimestre nas outras.">
+<meta name="description" content="Uma página com vendas, desconto e custo. Outras duas com o lucro aberto por ano, país, segmento e trimestre.">
 <meta name="color-scheme" content="light">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,7 +17,7 @@
 <div class="u-page">
     <header class="uv-header">
       <div class="uv-header__bar">
-        <a class="uv-brand" href="../index.html">NoFear</a>
+        <a class="uv-brand" href="../index.html">No Fear</a>
         <nav class="uv-nav" aria-label="Principal">
         <a href="../index.html">Quem sou eu</a>
         <a href="../projetos.html" aria-current="page">Projetos</a>
@@ -55,7 +55,7 @@
     </div>
     <div class="uv-stack uv-col" style="--col:9 / span 4;padding-top:38px">
       <div class="type-label-caps-sm">Dados · 2026</div>
-      <div class="type-label-caps-sm">Sozinho — desafio de projeto da DIO</div>
+      <div class="type-label-caps-sm">Sozinho, num desafio da DIO</div>
       <div class="type-label-caps-sm">Estudo</div>
     </div>
   </div>
@@ -63,7 +63,7 @@
   <div style="padding-top:var(--space-xl)">
     <figure class="uv-fig">
         <div class="uv-mat"><img class="uv-img" style="--ratio:1413 / 783" src="../assets/img/powerbi-dio-vendas.png" width="1413" height="783" alt="Página Sales Report: cartões de total de vendas, unidades, descontos e custo; série de vendas por mês; e quebras por segmento, produto e país."></div>
-        <figcaption>Vendas do período: os totais, a série mensal e as quebras.</figcaption>
+        <figcaption>A página de vendas do período, com a série mensal e as quebras.</figcaption>
       </figure>
   </div>
 
@@ -71,13 +71,13 @@
     <div class="u-content-span">
       <h2 class="type-label-caps">O problema</h2>
       <div style="margin:var(--space-md) 0 var(--space-xl)">
-          <p class="type-body-md u-measure">Saber de onde vem o lucro — por segmento, por país e por trimestre — sem refazer tabela dinâmica a cada pergunta.</p>
+          <p class="type-body-md u-measure">Saber de onde vem o lucro, por segmento e por trimestre, sem refazer tabela dinâmica a cada pergunta.</p>
       </div>
       <h2 class="type-label-caps">O que construí</h2>
       <div style="margin-top:var(--space-md)">
           <p class="type-body-md u-measure" style="margin-bottom:var(--space-lg)">Relatório em Power BI com três páginas: vendas do período, lucro detalhado e lucro por segmento.</p>
-          <p class="type-body-md u-measure" style="margin-bottom:var(--space-lg)"><strong>Medidas em DAX.</strong> Total de vendas, unidades, desconto e custo saem de medidas, não de coluna calculada na base.</p>
-          <p class="type-body-md u-measure"><strong>Do geral ao detalhe.</strong> A árvore de decomposição abre o lucro por ano e por país; a cascata mostra o trimestre que puxou o ano.</p>
+          <p class="type-body-md u-measure" style="margin-bottom:var(--space-lg)">Total de vendas, unidades, desconto e custo saem de medidas em DAX, e não de coluna calculada direto na base.</p>
+          <p class="type-body-md u-measure">A árvore de decomposição abre o lucro por ano e por país, e a cascata mostra qual trimestre puxou o ano.</p>
       </div>
     </div>
     <div class="uv-col" style="--col:9 / span 4">
@@ -92,7 +92,7 @@
       </div>
       <div style="padding-top:var(--space-xl)">
         <h2 class="type-label-caps">Resultado</h2>
-        <div class="type-headline-md" style="margin-top:var(--space-md)">Do total de vendas ao lucro por segmento</div>
+        <div class="type-headline-md" style="margin-top:var(--space-md)">O lucro aberto por segmento e por trimestre</div>
       </div>
       <div style="padding-top:var(--space-xl)">
         <h2 class="type-label-caps">Código</h2>

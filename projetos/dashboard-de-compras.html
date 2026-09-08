@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Dashboard de compras — José Marques</title>
-<meta name="description" content="Painel de compras com filtro que recalcula na hora: faturamento por loja, vendedor e produto.">
+<meta name="description" content="Painel de compras onde o filtro refaz a conta na hora, por loja, vendedor e produto.">
 <meta name="color-scheme" content="light">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,7 +17,7 @@
 <div class="u-page">
     <header class="uv-header">
       <div class="uv-header__bar">
-        <a class="uv-brand" href="../index.html">NoFear</a>
+        <a class="uv-brand" href="../index.html">No Fear</a>
         <nav class="uv-nav" aria-label="Principal">
         <a href="../index.html">Quem sou eu</a>
         <a href="../projetos.html" aria-current="page">Projetos</a>
@@ -71,13 +71,13 @@
     <div class="u-content-span">
       <h2 class="type-label-caps">O problema</h2>
       <div style="margin:var(--space-md) 0 var(--space-xl)">
-          <p class="type-body-md u-measure">Faturamento por loja, vendedor e produto — sem ferramenta de BI paga nem planilha atualizada à mão.</p>
+          <p class="type-body-md u-measure">Ver faturamento por loja, por vendedor e por produto sem pagar ferramenta de BI e sem planilha que alguém atualiza à mão.</p>
       </div>
       <h2 class="type-label-caps">O que construí</h2>
       <div style="margin-top:var(--space-md)">
-          <p class="type-body-md u-measure" style="margin-bottom:var(--space-lg)">Painel em Streamlit sobre três bases cruzadas em Pandas: compras, produtos e lojas.</p>
-          <p class="type-body-md u-measure" style="margin-bottom:var(--space-lg)"><strong>Filtro que refaz a conta.</strong> Cada filtro recalcula os agregados, não recorta tabela pronta.</p>
-          <p class="type-body-md u-measure"><strong>Base gerada por script.</strong> O dataset sai do próprio repositório, então o painel roda em qualquer máquina.</p>
+          <p class="type-body-md u-measure" style="margin-bottom:var(--space-lg)">É um painel em Streamlit sobre três bases cruzadas em Pandas: compras, produtos e lojas.</p>
+          <p class="type-body-md u-measure" style="margin-bottom:var(--space-lg)">Cada filtro recalcula os agregados de novo, em vez de recortar uma tabela já pronta.</p>
+          <p class="type-body-md u-measure">O dataset é gerado por um script do próprio repositório, então o painel roda em qualquer máquina sem depender de um arquivo que alguém precisa mandar.</p>
       </div>
     </div>
     <div class="uv-col" style="--col:9 / span 4">
@@ -92,7 +92,7 @@
       </div>
       <div style="padding-top:var(--space-xl)">
         <h2 class="type-label-caps">Resultado</h2>
-        <div class="type-headline-md" style="margin-top:var(--space-md)">Faturamento por loja, vendedor e produto numa tela</div>
+        <div class="type-headline-md" style="margin-top:var(--space-md)">Faturamento por loja e por vendedor sem abrir planilha</div>
       </div>
       <div style="padding-top:var(--space-xl)">
         <h2 class="type-label-caps">Código</h2>
@@ -110,7 +110,7 @@
       </figure></div>
     <div><figure class="uv-fig">
         <div class="uv-mat--sm"><img class="uv-img" style="--ratio:1 / 1" src="../assets/img/dashboard-compras-nova.png" width="724" height="724" alt="Aviso &quot;Compra adicionada com sucesso!&quot; acima da tabela de compras, com a linha nova de id 2000 no fim."></div>
-        <figcaption>Compra nova gravada: a linha entra no fim da tabela.</figcaption>
+        <figcaption>Cadastrei uma compra e ela apareceu no fim da tabela.</figcaption>
       </figure></div>
   </div>
 

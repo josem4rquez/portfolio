@@ -3,10 +3,7 @@
    é exatamente o passo que a tela de alta fidelidade previa. Depois de mexer
    aqui, rode `node tools/build.mjs` para regerar as páginas. */
 
-export const marca = 'NoFear';
-
-/* No rodapé a marca aparece com espaço: lá ela é assinatura, não logotipo. */
-export const marcaRodape = 'No Fear';
+export const marca = 'No Fear';
 
 /* Ficha de stack da home: rótulo e ferramentas, uma linha por grupo. */
 export const stack = [
@@ -75,16 +72,16 @@ export const projetos = [
     nota: '21 migrações versionadas. Tudo em Docker, atrás do Caddy com TLS automático, em VPS Linux.',
     ano: 2026,
     resumo:
-      'Agenda, prontuário e financeiro de uma clínica inteira, com o isolamento no banco.',
+      'Agenda, prontuário e financeiro de uma clínica inteira, com o isolamento entre clínicas feito no banco.',
     papel: 'Feito em Equipe: 2 Backend e 2 Frontend',
     problema: [
-      'Agenda, prontuário e financeiro no mesmo lugar — com registro clínico que não se edita e dado que não passa de uma clínica para a outra.',
+      'A clínica queria agenda, prontuário e financeiro no mesmo lugar. Com duas condições que sistema genérico não cumpre: registro clínico não se edita, e dado de uma clínica não pode aparecer na outra.',
     ],
     construcao: [
-      'Software de gestão em produção: agenda por cadeira, prontuário, odontograma, orçamento, financeiro e equipe.',
-      '**Multi-tenancy no banco.** Cada clínica é um tenant, isolada por Row Level Security do PostgreSQL — não por WHERE.',
-      '**Prontuário append-only.** Um gatilho impede editar ou apagar; corrigir é escrever a versão seguinte.',
-      '**Permissão por papel.** Cinco papéis. A interface esconde; quem barra é a API, com 403.',
+      'O sistema está rodando na clínica. Cobre agenda por cadeira, prontuário, odontograma, orçamento, financeiro e gestão de equipe.',
+      'Cada clínica é um tenant, e quem isola é o Row Level Security do PostgreSQL. Se alguém esquecer um WHERE numa consulta, o banco continua não entregando dado da clínica vizinha.',
+      'Prontuário não se edita nem se apaga, e é um gatilho no banco que garante isso. Corrigir é escrever a versão seguinte, com a anterior continuando lá.',
+      'São cinco papéis de acesso. A interface esconde o que a pessoa não pode abrir, mas quem barra de verdade é a API, com 403.',
     ],
     resultado: 'Em produção, da agenda ao caixa',
     /* Software de cliente: sem repositório público. Sem href, o bloco Código
@@ -98,7 +95,7 @@ export const projetos = [
       largura: 1911,
       altura: 961,
     },
-    capaLegenda: 'Início: os próximos atendimentos, o mural da equipe e o atalho para onde se voltou por último.',
+    capaLegenda: 'A tela de início, com os próximos atendimentos e o mural da equipe.',
     prints: [
       {
         img: {
@@ -108,7 +105,7 @@ export const projetos = [
           largura: 1296,
           altura: 1296,
         },
-        legenda: 'Odontograma: o estado de cada dente.',
+        legenda: 'O odontograma, dente por dente.',
       },
       {
         img: {
@@ -118,7 +115,7 @@ export const projetos = [
           largura: 1305,
           altura: 1305,
         },
-        legenda: 'Dashboard: o que entrou e o que falta executar.',
+        legenda: 'O painel mostra o que entrou e o que ainda falta executar.',
       },
     ],
   },
@@ -132,15 +129,15 @@ export const projetos = [
     chips: ['MySQL', 'SQL'],
     ano: 2026,
     resumo:
-      'Venda transacional vira esquema estrela: staging, oito dimensões e um fato consultável.',
+      'Venda transacional virando esquema estrela, com staging, oito dimensões e um fato que dá para consultar.',
     papel: 'Sozinho, da modelagem ao carregamento',
     problema: [
-      'Dado de venda nasce transacional: para saber faturamento, venda por produto, por cliente, por forma de pagamento ou por período, cada pergunta vira um JOIN escrito na hora.',
+      'Dado de venda nasce transacional. Qualquer pergunta de negócio vira um JOIN escrito na hora, e ninguém escreve o mesmo JOIN duas vezes igual.',
     ],
     construcao: [
-      'Um data warehouse em esquema estrela: cinco tabelas de staging, oito dimensões e o fato de vendas.',
-      '**ETL em camadas.** Gerador SQL, staging, transformação, dimensões, fato — nessa ordem. Cada etapa é um script versionado, e o dado bruto fica intacto na camada de entrada.',
-      '**Chave substituta em toda dimensão.** A chave do sistema de origem não vira chave do modelo, então mudança de cadastro não reescreve histórico de venda.',
+      'Montei um data warehouse em esquema estrela: cinco tabelas de staging, oito dimensões e o fato de vendas.',
+      'O ETL roda sempre na mesma ordem: gerador, staging, transformação, dimensões, fato. Cada etapa é um script versionado, e o dado bruto fica intacto na entrada.',
+      'Toda dimensão tem chave substituta. A chave do sistema de origem não vira chave do modelo, então mudar um cadastro hoje não reescreve o histórico de venda de dois anos atrás.',
     ],
     resultado: 'Cinco perguntas de negócio numa consulta só',
     repo: 'github.com/josem4rquez/ecommerce_dw',
@@ -162,7 +159,7 @@ export const projetos = [
           largura: 972,
           altura: 972,
         },
-        legenda: 'O modelo físico: o fato de vendas e as chaves que chegam nele.',
+        legenda: 'O modelo físico, com as chaves que chegam no fato.',
       },
       {
         img: {
@@ -172,7 +169,7 @@ export const projetos = [
           largura: 908,
           altura: 908,
         },
-        legenda: 'A documentação: visão geral, backlog, modelo, dicionário e cargas.',
+        legenda: 'A documentação do projeto, com backlog, dicionário e as cargas.',
       },
     ],
   },
@@ -194,16 +191,16 @@ export const projetos = [
     ],
     ano: 2025,
     resumo:
-      'CRUD de clientes em Spring Boot, com e-mail único, documentação Swagger e cliente Feign.',
-    papel: 'Sozinho, projeto de bootcamp',
+      'CRUD de clientes em Spring Boot, com e-mail único e documentação que sai do próprio código.',
+    papel: 'Sozinho, num bootcamp',
     problema: [
-      'Aprender Spring Boot montando a espinha inteira de uma API REST: controller, serviço, repositório, documentação — e não só o caminho feliz do CRUD.',
+      'Queria aprender Spring Boot montando a API inteira, e não só o caminho feliz do CRUD.',
     ],
     construcao: [
-      'Uma API de cadastro de clientes em camadas: controller, service, repository e DTO, sobre Spring Data JPA com banco H2 em memória.',
-      '**Regra no serviço, não no controller.** O e-mail é único: a criação é bloqueada se ele já existir, e quem decide isso é a camada de serviço.',
-      '**Documentação que vem do código.** springdoc-openapi publica o Swagger UI a partir das próprias assinaturas, então a doc não envelhece separada da API.',
-      '**Cliente HTTP declarativo.** OpenFeign para consumir serviço externo por interface, sem escrever chamada na mão.',
+      'A API é em camadas, controller, service, repository e DTO, sobre Spring Data JPA com banco H2 em memória.',
+      'A regra do e-mail único mora no serviço, não no controller. Se o e-mail já existe, a criação para ali.',
+      'A documentação sai das próprias assinaturas, pelo springdoc-openapi. Assim ela não envelhece separada da API.',
+      'Para consumir serviço externo usei OpenFeign: declara a interface e pronto, sem escrever chamada na mão.',
     ],
     resultado: 'CRUD documentado, com e-mail único garantido no serviço',
     repo: 'github.com/josem4rquez/projeto-informacoes',
@@ -215,7 +212,7 @@ export const projetos = [
       largura: 1445,
       altura: 963,
     },
-    capaLegenda: 'A documentação sai do código: Swagger UI gerado pelas assinaturas.',
+    capaLegenda: 'O Swagger UI, gerado pelas assinaturas do próprio código.',
     prints: [
       {
         img: {
@@ -225,7 +222,7 @@ export const projetos = [
           largura: 1135,
           altura: 1135,
         },
-        legenda: 'POST /api/clientes: 201 e o cliente criado de volta, com id.',
+        legenda: 'Um POST em /api/clientes devolvendo 201 e o cliente criado, já com id.',
       },
       {
         img: {
@@ -249,17 +246,17 @@ export const projetos = [
     chips: ['Python', 'Pandas', 'Streamlit'],
     ano: 2026,
     resumo:
-      'Painel de compras com filtro que recalcula na hora: faturamento por loja, vendedor e produto.',
+      'Painel de compras onde o filtro refaz a conta na hora, por loja, vendedor e produto.',
     papel: 'Sozinho, do dataset ao painel',
     problema: [
-      'Faturamento por loja, vendedor e produto — sem ferramenta de BI paga nem planilha atualizada à mão.',
+      'Ver faturamento por loja, por vendedor e por produto sem pagar ferramenta de BI e sem planilha que alguém atualiza à mão.',
     ],
     construcao: [
-      'Painel em Streamlit sobre três bases cruzadas em Pandas: compras, produtos e lojas.',
-      '**Filtro que refaz a conta.** Cada filtro recalcula os agregados, não recorta tabela pronta.',
-      '**Base gerada por script.** O dataset sai do próprio repositório, então o painel roda em qualquer máquina.',
+      'É um painel em Streamlit sobre três bases cruzadas em Pandas: compras, produtos e lojas.',
+      'Cada filtro recalcula os agregados de novo, em vez de recortar uma tabela já pronta.',
+      'O dataset é gerado por um script do próprio repositório, então o painel roda em qualquer máquina sem depender de um arquivo que alguém precisa mandar.',
     ],
-    resultado: 'Faturamento por loja, vendedor e produto numa tela',
+    resultado: 'Faturamento por loja e por vendedor sem abrir planilha',
     repo: 'github.com/josem4rquez/dashboard_compras',
     repoHref: 'https://github.com/josem4rquez/dashboard_compras',
     capaImg: {
@@ -289,7 +286,7 @@ export const projetos = [
           largura: 724,
           altura: 724,
         },
-        legenda: 'Compra nova gravada: a linha entra no fim da tabela.',
+        legenda: 'Cadastrei uma compra e ela apareceu no fim da tabela.',
       },
     ],
   },
@@ -303,16 +300,16 @@ export const projetos = [
     chips: ['Power BI', 'Power Query', 'Excel/CSV'],
     ano: 2026,
     resumo:
-      'Relatório de vendas em Power BI: total, mapa e ranking por país, com o período filtrável.',
-    papel: 'Sozinho, do ETL ao relatório',
+      'Relatório de vendas em Power BI, com mapa e ranking por país e filtro de período.',
+    papel: 'Sozinho',
     problema: [
-      'Base de vendas crua não responde por país nem por período: cada pergunta vira uma tabela dinâmica nova.',
+      'Base crua não responde por país nem por período. Cada pergunta virava uma tabela dinâmica nova.',
     ],
     construcao: [
-      'Relatório em Power BI com duas páginas — vendas e quantidade — sobre a base tratada no Power Query.',
-      '**ETL antes do gráfico.** Limpeza, transformação e padronização no Power Query, não no visual.',
+      'São duas páginas, vendas e quantidade, sobre a base já tratada no Power Query.',
+      'A limpeza e a padronização acontecem no Power Query, antes do gráfico. Visual não é lugar de arrumar dado.',
     ],
-    resultado: 'Vendas por país e por período, numa página',
+    resultado: 'Vendas por país, com o período no filtro',
     repo: 'github.com/josem4rquez/dashboard_sales_powerbi',
     repoHref: 'https://github.com/josem4rquez/dashboard_sales_powerbi',
     capaImg: {
@@ -322,7 +319,7 @@ export const projetos = [
       largura: 1477,
       altura: 825,
     },
-    capaLegenda: 'Vendas: os totais, o mapa e o ranking por país.',
+    capaLegenda: 'A página de vendas, com o mapa e o ranking por país.',
     prints: [
       {
         img: {
@@ -332,7 +329,7 @@ export const projetos = [
           largura: 1476,
           altura: 826,
         },
-        legenda: 'Quantidade: a mesma base pela outra pergunta, contra a meta.',
+        legenda: 'A página de quantidade, com a mesma base olhada pela outra pergunta.',
       },
     ],
   },
@@ -346,17 +343,17 @@ export const projetos = [
     chips: ['Power BI', 'DAX', 'ETL'],
     ano: 2026,
     resumo:
-      'Vendas, desconto e custo numa página; o lucro aberto por ano, país, segmento e trimestre nas outras.',
-    papel: 'Sozinho — desafio de projeto da DIO',
+      'Uma página com vendas, desconto e custo. Outras duas com o lucro aberto por ano, país, segmento e trimestre.',
+    papel: 'Sozinho, num desafio da DIO',
     problema: [
-      'Saber de onde vem o lucro — por segmento, por país e por trimestre — sem refazer tabela dinâmica a cada pergunta.',
+      'Saber de onde vem o lucro, por segmento e por trimestre, sem refazer tabela dinâmica a cada pergunta.',
     ],
     construcao: [
       'Relatório em Power BI com três páginas: vendas do período, lucro detalhado e lucro por segmento.',
-      '**Medidas em DAX.** Total de vendas, unidades, desconto e custo saem de medidas, não de coluna calculada na base.',
-      '**Do geral ao detalhe.** A árvore de decomposição abre o lucro por ano e por país; a cascata mostra o trimestre que puxou o ano.',
+      'Total de vendas, unidades, desconto e custo saem de medidas em DAX, e não de coluna calculada direto na base.',
+      'A árvore de decomposição abre o lucro por ano e por país, e a cascata mostra qual trimestre puxou o ano.',
     ],
-    resultado: 'Do total de vendas ao lucro por segmento',
+    resultado: 'O lucro aberto por segmento e por trimestre',
     repo: 'github.com/josem4rquez/dashboard_powerbi',
     repoHref: 'https://github.com/josem4rquez/dashboard_powerbi',
     capaImg: {
@@ -366,7 +363,7 @@ export const projetos = [
       largura: 1413,
       altura: 783,
     },
-    capaLegenda: 'Vendas do período: os totais, a série mensal e as quebras.',
+    capaLegenda: 'A página de vendas do período, com a série mensal e as quebras.',
     prints: [
       {
         img: {
@@ -400,16 +397,16 @@ export const projetos = [
     chips: ['HTML', 'CSS', 'JavaScript', 'localStorage'],
     ano: 2026,
     resumo:
-      'Delivery do campus da PUC: catálogo, busca em tempo real e carrinho que sobrevive ao reload.',
+      'Delivery do campus da PUC, com busca em tempo real e carrinho que sobrevive ao reload.',
     papel: 'Em equipe, cinco pessoas',
     problema: [
-      'Um delivery inteiro rodando no navegador: buscar, montar o carrinho, fechar o pedido. Sem framework, por escolha — o exercício era DOM, evento e armazenamento local na mão.',
+      'Um delivery inteiro rodando no navegador: buscar, montar o carrinho, fechar o pedido. Sem framework, e isso foi escolha nossa. O exercício era mexer em DOM, evento e armazenamento local na mão.',
     ],
     construcao: [
       'Quatro páginas: a home com catálogo e recomendações, o cardápio em modal, a listagem completa com busca e a autenticação.',
-      '**Carrinho no localStorage.** O pedido sobrevive ao reload da página: a Web Storage API fazendo o trabalho que seria de um back-end.',
-      '**Busca em tempo real.** A lista filtra conforme a pessoa digita, sem ida ao servidor.',
-      '**IA no processo.** Parte do código e das telas saiu com apoio de IA.',
+      'O carrinho fica no localStorage, então o pedido sobrevive ao reload. É a Web Storage API fazendo o trabalho que seria de um back-end.',
+      'A busca filtra a lista conforme a pessoa digita, sem ida ao servidor.',
+      'Parte do código e das telas saiu com apoio de IA.',
       'Feito com Rauhan Kniess, Eduardo Lopes, Gabriel Men e Ruan Eduardo Yamaguchi.',
     ],
     resultado: 'Pedido montado e mantido, sem back-end',
@@ -422,7 +419,7 @@ export const projetos = [
       largura: 1438,
       altura: 769,
     },
-    capaLegenda: 'A home: busca no topo, promoções e o tempo até o campus.',
+    capaLegenda: 'A home, com a busca no topo e o tempo de entrega até o campus.',
     prints: [
       {
         img: {
@@ -432,7 +429,7 @@ export const projetos = [
           largura: 1394,
           altura: 929,
         },
-        legenda: 'O cardápio: abas por categoria, busca própria, item a item.',
+        legenda: 'O cardápio de um restaurante, com abas por categoria e busca própria.',
       },
       {
         img: {
@@ -456,16 +453,16 @@ export const projetos = [
     chips: ['HTML', 'CSS', 'JavaScript', 'Node'],
     ano: 2026,
     resumo:
-      'O portfólio que você está lendo: design system próprio, gerador em Node, zero dependência em runtime.',
+      'O portfólio que você está lendo agora, com design system próprio e um gerador em Node.',
     papel: 'Sozinho, do sistema visual ao deploy',
     problema: [
-      'Doze páginas com o mesmo cabeçalho, o mesmo rodapé e o mesmo índice — e nenhuma vontade de repetir HTML à mão.',
+      'Doze páginas com o mesmo cabeçalho, o mesmo rodapé e o mesmo índice. Não dava para manter isso copiando HTML à mão.',
     ],
     construcao: [
-      'Site estático com design system próprio: tokens de cor, tipografia, espaçamento e uma grade de 12 colunas, tudo em CSS puro.',
-      '**O conteúdo mora num arquivo só.** Um gerador em Node lê o conteudo.js e escreve as páginas; trocar um projeto é editar um objeto.',
-      '**Nada em tempo de execução.** Sem framework, sem rastreamento: abrir o index.html no navegador funciona.',
-      '**Feito com IA.** O design system, o gerador e as fichas foram escritos com Claude Code, usando as Skills dele. O que entra, o que sai e o texto final são decisão minha.',
+      'Site estático com design system próprio: cor, tipografia, espaçamento e uma grade de 12 colunas, tudo em CSS puro.',
+      'Todo o conteúdo mora num arquivo só. Um gerador em Node lê esse arquivo e escreve as páginas, então trocar um projeto do portfólio é editar um objeto.',
+      'Não tem nada rodando em tempo de execução. Sem framework e sem rastreamento: abrir o index.html no navegador funciona.',
+      'Escrevi o site com Claude Code, usando as Skills dele, do design system ao texto das fichas. O que entra e o que fica de fora continua sendo decisão minha.',
     ],
     resultado: 'Doze páginas a partir de um arquivo de conteúdo',
     repo: 'github.com/josem4rquez/portfolio',
@@ -477,7 +474,7 @@ export const projetos = [
       largura: 1141,
       altura: 986,
     },
-    capaLegenda: 'A home: margem larga, a ficha de stack e uma foto.',
+    capaLegenda: 'A home, com a margem larga e a ficha de stack.',
     prints: [
       {
         img: {
@@ -487,7 +484,7 @@ export const projetos = [
           largura: 1170,
           altura: 976,
         },
-        legenda: 'O índice: número, nome, disciplina, ano.',
+        legenda: 'O índice dos projetos, uma linha por sistema.',
       },
       {
         img: {
@@ -497,7 +494,7 @@ export const projetos = [
           largura: 1177,
           altura: 956,
         },
-        legenda: 'A página da empresa, com a mesma grade e os mesmos filetes.',
+        legenda: 'A página da No Fear, na mesma grade e com os mesmos filetes.',
       },
     ],
   },
@@ -512,19 +509,19 @@ export const servicosNoFear = [
     numero: '01',
     nome: 'Sistemas de gestão',
     texto:
-      'Cadastro, aprovação e rotina de operação para quem hoje trabalha em três abas abertas ao mesmo tempo.',
+      'Cadastro, aprovação e a rotina do dia para quem hoje resolve tudo com três abas abertas ao mesmo tempo.',
   },
   {
     numero: '02',
     nome: 'Integrações e APIs',
     texto:
-      'Ligação entre ERP, banco e loja, com retentativa e registro de tudo que passou.',
+      'Ligação entre ERP, banco e loja. Quando uma ponta cai, a fila segura e o log conta o que passou.',
   },
   {
     numero: '03',
     nome: 'Dados e relatórios',
     texto:
-      'Um lugar só com o número certo, atualizado sozinho, no formato que a diretoria já usa.',
+      'Um lugar só com o número certo, atualizado sozinho, no formato que a diretoria já lê.',
   },
 ];
 
@@ -544,7 +541,7 @@ export const colecao = [
       largura: 1200,
       altura: 1600,
     },
-    legenda: 'Quando eu e meus amigos ganhamos esse prêmio na disciplina de Experiência Criativa.',
+    legenda: 'Eu e meus amigos ganhamos esse na disciplina de Experiência Criativa.',
   },
   {
     tipo: 'imagem',
@@ -653,14 +650,14 @@ export const colecao = [
   },
   {
     tipo: 'placa',
-    nome: 'Solo de Guitarra que Toquei',
+    nome: 'Solo de guitarra que toquei',
     midia: 'Áudio',
     ano: '0:31 · 2026',
     meta: 'Áudio · 0:31 · 2026',
     proporcao: '1 / 1',
     duracao: '0:31',
     audio: 'assets/audio/faixa-em-casa.m4a',
-    legenda: 'Solo da Música: Colossenses e Suas Linhas de Amor',
+    legenda: 'Um solo da música Colossenses e Suas Linhas de Amor.',
   },
   {
     tipo: 'imagem',

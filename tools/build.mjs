@@ -17,7 +17,6 @@ import { dirname, join } from 'node:path';
 
 import {
   marca,
-  marcaRodape,
   notaRodape,
   contato,
   navegacao,
@@ -101,7 +100,7 @@ function rodape(base) {
     <div class="u-page">
       <div class="uv-footer__cols">
         <div class="uv-footer__brand">
-          <div class="uv-footer__mark">${esc(marcaRodape)}</div>
+          <div class="uv-footer__mark">${esc(marca)}</div>
           <div class="uv-footer__note">${esc(notaRodape)}</div>
         </div>
         <div class="uv-footer__col">
@@ -243,12 +242,12 @@ function paginaHome() {
     </div>
   </div>
 
-  <p class="type-body-lg u-measure" style="margin-top:var(--space-xl)">Construo os sistemas que a operação de uma empresa usa todo dia — e respondo por eles depois que entram no ar.</p>
+  <p class="type-body-lg u-measure" style="margin-top:var(--space-xl)">Construo os sistemas que uma empresa usa todo dia. E continuo responsável por eles depois que entram no ar.</p>
 
   <div class="u-grid-12" style="padding-top:var(--space-xxl)">
     <div class="u-content-span">
-      <p class="type-body-md u-measure" style="margin-bottom:var(--space-lg)">A maior parte do que faço é integração: fazer conversar sistemas que não foram feitos para isso. O trabalho de verdade vem depois: fila, retentativa, log, o dia em que a API do outro lado cai.</p>
-      <p class="type-body-md u-measure">Em 2026 entrei na faculdade de Sistemas de Informação e abri a <strong>No Fear</strong>, onde levo esse trabalho até o fim com as empresas que me procuram.</p>
+      <p class="type-body-md u-measure" style="margin-bottom:var(--space-lg)">Passo a maior parte do tempo fazendo dois sistemas conversarem quando nenhum dos dois foi feito para isso. A parte difícil nunca é a primeira chamada que dá certo. É o dia em que a API do outro lado cai e alguém precisa saber o que aconteceu com o pedido que estava no meio do caminho.</p>
+      <p class="type-body-md u-measure">Entrei na faculdade de Sistemas de Informação em 2026 e abri a <strong>No Fear</strong> no mesmo ano. É por ela que atendo as empresas que me procuram.</p>
 
       <div style="margin-top:var(--space-xl)">
         <h2 class="type-label-caps-sm" style="margin-bottom:var(--space-md)">Stack</h2>
@@ -280,7 +279,7 @@ ${stack
       </div>
       <div class="uv-col" style="--col:5 / span 6">
         <h3 class="type-headline-md" style="margin-bottom:var(--space-lg)">Sistemas de gestão, integrados a business intelligence</h3>
-        <p class="type-body-md" style="margin-bottom:var(--space-lg)">A No Fear assume o sistema interno que a planilha não aguenta mais. Escopo fechado, entrega em partes, código no repositório do cliente.</p>
+        <p class="type-body-md" style="margin-bottom:var(--space-lg)">A No Fear assume o sistema interno que a planilha não aguenta mais. Escopo fechado antes de começar, e o código fica no repositório do cliente.</p>
         <a href="no-fear.html">Ver a No Fear</a>
       </div>
     </div>
@@ -326,7 +325,7 @@ function paginaProjetos() {
   const conteudo = `  <div class="u-grid-12" style="padding-top:var(--space-xxl)">
     <div class="u-content-span">
       <h1 class="type-headline-lg" style="margin-bottom:var(--space-lg)">Projetos</h1>
-      <p class="type-body-md u-measure">${porExtenso(projetos.length)} sistemas que construí, agrupados por disciplina. Cada linha abre a ficha: o problema, a stack, o resultado e o código.</p>
+      <p class="type-body-md u-measure">${porExtenso(projetos.length)} sistemas que construí, agrupados por disciplina. Clicar na linha abre a ficha, com o problema, a stack e o link do código.</p>
     </div>
     <div class="uv-col" style="--col:9 / span 4;padding-top:10px">
       <div class="type-meta-num">${String(projetos.length).padStart(2, '0')} entradas · ${Math.min(...anos)}—${Math.max(...anos)}</div>
@@ -476,7 +475,7 @@ function paginaNoFear() {
     <div class="uv-col" style="--col:1 / span 8">
       <div class="type-label-caps">A empresa</div>
       <h1 class="type-headline-lg" style="margin:var(--space-md) 0 var(--space-lg);max-width:22ch">Sistemas de gestão integrados a business intelligence</h1>
-      <p class="type-body-lg u-measure">A No Fear é especializada em sistemas de gestão: assumir o sistema interno que a planilha não aguenta mais. Cada entrega sai com business intelligence acoplado — o dado que a operação registra é o mesmo que aparece no painel de quem decide. Escopo fechado antes de começar, entrega em partes, código no repositório do cliente.</p>
+      <p class="type-body-lg u-measure">A No Fear faz sistema de gestão para empresa que já passou do ponto da planilha. Cada entrega sai com o painel junto, então o número que a operação digita é o mesmo que o dono olha no fim do mês. Escopo fechado antes de começar, e o código fica no repositório do cliente.</p>
     </div>
     <div class="uv-col" style="--col:10 / span 3;text-align:right;padding-top:6px">
       <div class="type-meta-num">Fundada em 2026</div>
@@ -561,7 +560,7 @@ function paginaColecao() {
   const conteudo = `  <div class="u-grid-12" style="padding-top:var(--space-xxl)">
     <div class="u-content-span">
       <h1 class="type-headline-lg" style="margin-bottom:var(--space-lg)">Coleção de Criações</h1>
-      <p class="type-body-md u-measure">Arte, vídeo, áudio e foto. É o que faço quando o problema não é de software, e está aqui porque é a mesma disciplina em outro material.</p>
+      <p class="type-body-md u-measure">Foto, arte e um solo de guitarra. É o que fica de fora quando o portfólio só fala de software.</p>
     </div>
     <div class="uv-col" style="--col:10 / span 3;text-align:right;padding-top:10px">
       <div class="type-meta-num">${String(colecao.length).padStart(2, '0')} entradas</div>
@@ -577,7 +576,7 @@ ${celulas}
   return documento({
     titulo: 'Coleção de Criações — José Marques',
     descricao:
-      'Arte, vídeo, áudio e foto: o que faço quando o problema não é de software.',
+      'Foto, arte e um solo de guitarra: o que fica de fora quando o portfólio só fala de software.',
     atual: 'colecao',
     base: '',
     conteudo,
