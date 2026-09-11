@@ -721,6 +721,22 @@ export const colecao = [
   },
   {
     tipo: 'imagem',
+    nome: 'Eu e minha mãe',
+    midia: 'Foto',
+    ano: '',
+    proporcao: '1200 / 1600',
+    destaque: true,
+    img: {
+      src: 'assets/img/eu-e-minha-mae.jpg',
+      alt: 'Selfie com minha mãe no dia da formatura, eu de beca e ela segurando uma rosa vermelha.',
+      ratio: '1200 / 1600',
+      largura: 1200,
+      altura: 1600,
+    },
+    legenda: 'A minha maior inspiração.',
+  },
+  {
+    tipo: 'imagem',
     nome: 'Jantar de formatura do ensino médio',
     midia: 'Foto',
     ano: '',
